@@ -5,9 +5,9 @@ interface BadgeProps {
 
 const CustomBadge = ({ icon: Icon, text }: BadgeProps) => {
   return (
-    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm bg-blue-50 dark:bg-white/10 text-blue-600 dark:text-blue-400 mb-6 border border-blue-200 dark:border-blue-400/20">
+    <div className="relative inline-flex items-center gap-2 px-5 py-2 mb-8 sm:mb-10 text-xs font-semibold text-blue-700 dark:text-blue-300 uppercase tracking-wide bg-blue-100 dark:bg-blue-500/10 border border-blue-300 dark:border-blue-500/30 rounded-lg animate-pulse shadow-[0_0_8px_2px_rgba(59,130,246,0.15)] dark:shadow-[0_0_12px_3px_rgba(59,130,246,0.2)] transition-transform hover:rotate-[0.5deg] backdrop-blur-sm">
       {Icon && (
-        <Icon className="w-4 h-4 text-blue-500 dark:text-blue-400 font-bold" />
+        <Icon className="w-4 h-4 text-blue-500 dark:text-blue-400 animate-spin-slow" />
       )}
       {text}
     </div>

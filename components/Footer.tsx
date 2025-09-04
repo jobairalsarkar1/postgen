@@ -2,16 +2,18 @@
 
 import Link from "next/link";
 import {
-  ArrowRight,
   Github,
   Twitter,
   Linkedin,
   Mail,
   Sparkles,
+  MoveRight,
+  SquareSquare,
 } from "lucide-react";
 import { useState } from "react";
 import axios from "axios";
 import ThemeToggle from "./theme/ThemeToggle";
+import CustomBadge from "./CustomBadge";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -51,14 +53,13 @@ const Footer = () => {
     <footer className="bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-20">
       {/* CTA Section */}
       <div className="text-center px-4 mb-24">
-        <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-500/10 px-4 py-2 rounded-full mb-4">
-          <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-          <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
-            Get Started Today
-          </span>
-        </div>
+        <CustomBadge text="Get Started Today" icon={Sparkles} />
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Ready to Transform Your Social Media?
+          Ready to&nbsp;
+          <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+            Transform
+          </span>
+          &nbsp;Your Social Media?
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
           Join thousands of creators and developers who save hours every week
@@ -68,16 +69,10 @@ const Footer = () => {
         <div className="flex flex-row justify-center gap-3 flex-wrap">
           <Link
             href="/account"
-            className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-white text-sm sm:text-base bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 shadow-lg hover:scale-105 transition"
+            className="inline-flex items-center justify-center tracking-wide font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-white text-base sm:text-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 shadow-lg transition"
           >
-            Start Free
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-          </Link>
-          <Link
-            href="/docs"
-            className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg border border-blue-500/70 dark:border-blue-600/70 text-sm sm:text-base text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-blue-600/10 transition"
-          >
-            View Docs
+            Get Started Free
+            <MoveRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
           </Link>
         </div>
       </div>
@@ -89,11 +84,13 @@ const Footer = () => {
           <div>
             <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
               <div className="w-9 h-9 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
-                <Sparkles className="w-5 h-5 text-white" />
+                <SquareSquare className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold">PostGen</span>
+              <span className="text-2xl tracking-tight font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                PostGen AI
+              </span>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 max-w-sm">
+            <p className="text-sm leading-snug text-gray-500 dark:text-gray-400 mb-6 max-w-sm">
               AI-powered social content generation platform. Build faster,
               engage smarter, and focus on what matters most.
             </p>
@@ -128,13 +125,13 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               <li>
                 <Link
                   href="/docs"
                   className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
                 >
-                  Documentation
+                  How It Works
                 </Link>
               </li>
               <li>
@@ -201,10 +198,11 @@ const Footer = () => {
           </div>
 
           {/* Right - Policies */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <Link href="/privacy" className="hover:text-blue-500 transition">
               Privacy Policy
             </Link>
+            <span className="text-gray-400">|</span>
             <Link href="/cookies" className="hover:text-blue-500 transition">
               Cookies Policy
             </Link>

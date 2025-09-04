@@ -2,42 +2,36 @@ import { BarChart3, Clock, Code2, Globe, Shield, Zap } from "lucide-react";
 
 export const faqs = [
   {
-    question: "How do I get started with PostGen?",
+    question: "How does PostGen AI work?",
     answer:
-      "Simply sign up for a free account and you'll receive your API key instantly. You can start making requests immediately with our comprehensive documentation and examples.",
+      "PostGen AI transforms a single prompt into tailored content for platforms like Twitter, LinkedIn, and Facebook. Just type your idea, choose the platform, and let the AI do the rest.",
   },
   {
-    question: "Is the data realistic and production-ready?",
+    question: "What platforms are supported?",
     answer:
-      "Yes! Our dummy data is carefully crafted to be realistic and comprehensive. It includes proper relationships, realistic values, and follows industry standards for data structures.",
+      "Right now, PostGen AI supports content generation for Twitter, LinkedIn, Facebook, and Threads — with more platforms coming soon based on user feedback.",
   },
   {
-    question: "Can I use PostGen in production?",
+    question: "Is PostGen AI free to use?",
     answer:
-      "PostGen is designed for development, testing, and prototyping. For production applications, you'll want to replace our endpoints with your actual backend APIs.",
+      "Yes, it's completely free to use during our early access period. We're focused on making the product great, and you'll be the first to know when we introduce plans or pricing.",
   },
   {
-    question: "What happens when I hit the rate limits?",
+    question: "Can I control the tone or style of the content?",
     answer:
-      "When you reach your plan's rate limit, requests will return a 429 status code. You can upgrade your plan for higher limits or wait for the limit to reset.",
+      "Definitely. You can choose from different tones like casual, professional, witty, or even inspirational — helping your content match your voice or brand.",
   },
-  //   {
-  //     question: "Do you offer custom data structures?",
-  //     answer:
-  //       "Yes! Enterprise customers can request custom endpoints and data structures tailored to their specific needs. Contact our sales team to discuss your requirements.",
-  //   },
   {
-    question: "Is my API key secure?",
+    question: "Do I need an account to use PostGen AI?",
     answer:
-      "Absolutely. Your API key is encrypted and should be kept confidential. Never expose it in client-side code. Use environment variables and follow security best practices.",
+      "Yes, creating a free account lets you save your generated posts, access platform-specific tools, and get personalized suggestions.",
   },
-  //   {
-  //     question: "Can I cancel my subscription anytime?",
-  //     answer:
-  //       "Yes, you can cancel your subscription at any time. Your plan will remain active until the end of your billing period, and you can always downgrade to our free tier.",
-  //   },
+  {
+    question: "Is my content private?",
+    answer:
+      "Yes. Everything you generate is private and only visible to you. We don’t store your prompts or share your content with anyone.",
+  },
 ];
-
 
 export const features = [
   {

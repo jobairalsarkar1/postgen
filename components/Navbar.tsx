@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Network, SquareSquare } from "lucide-react";
+import { Menu, X, SquareSquare } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
 
@@ -25,10 +25,12 @@ export default function Navbar() {
                   sidebarOpen && "opacity-40 blur-[2px]"
                 )}
               >
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-600">
+                <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                   <SquareSquare className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold text-blue-600">PostGen</span>
+                <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                  PostGen AI
+                </span>
               </Link>
               {/* 
               <div className="hidden md:block">
@@ -37,15 +39,28 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center gap-4">
               <div className="flex items-center space-x-2">
-                <NavLink href="/" text="Home" active={pathname === "/"} />
+                <NavLink
+                  href="/"
+                  text="Home"
+                  active={pathname === "/"}
+                  desktop
+                />
               </div>
+
               <ThemeToggle />
 
               <Link
                 href="/sign-in"
-                className="font-semibold text-sm px-4 py-2 bg-blue-400 hover:bg-blue-500 rounded-md text-white"
+                className="text-sm font-semibold px-4 py-2 rounded-md transition hover:bg-blue-100 dark:hover:bg-blue-800/30"
+              >
+                Sign In
+              </Link>
+
+              <Link
+                href="/sign-in"
+                className="font-semibold text-sm px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white rounded-md"
               >
                 Get Started
               </Link>
@@ -95,10 +110,12 @@ export default function Navbar() {
               className="flex items-center gap-2"
               onClick={() => setSidebarOpen(false)}
             >
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-600">
-                <Network className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                <SquareSquare className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-blue-600">PostGen</span>
+              <span className="text-xl font-bold text-blue-600">
+                PostGen AI
+              </span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
@@ -138,11 +155,13 @@ function NavLink({
   text,
   active,
   onClick,
+  desktop,
 }: {
   href: string;
   text: string;
   active: boolean;
   onClick?: () => void;
+  desktop?: boolean;
 }) {
   return (
     <Link
@@ -150,7 +169,9 @@ function NavLink({
       onClick={onClick}
       className={clsx(
         "px-3.5 py-1.5 text-sm flex items-center space-x-2 rounded-xl font-medium transition-colors",
-        active
+        desktop
+          ? "text-gray-700 dark:text-gray-300 hover:text-blue-600"
+          : active
           ? "bg-blue-600/15 text-blue-600"
           : "text-gray-600 dark:text-gray-400 hover:bg-blue-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
       )}
