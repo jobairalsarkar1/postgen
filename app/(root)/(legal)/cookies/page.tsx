@@ -71,7 +71,7 @@ const Page = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Cookie{" "}
-              <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 dark:from-orange-200 dark:via-orange-500 dark:to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 dark:from-blue-200 dark:via-blue-500 dark:to-blue-600 bg-clip-text text-transparent">
                 Policy
               </span>
             </h1>
@@ -95,7 +95,7 @@ const Page = () => {
                       href={`#${s.id}`}
                       className={`flex items-center gap-4 p-3 rounded-lg transition-all duration-300 ${
                         active === s.id
-                          ? "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 shadow-md"
+                          ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 shadow-md"
                           : "hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
                       }`}
                       onClick={() => setActive(s.id)}
@@ -103,7 +103,7 @@ const Page = () => {
                       <span
                         className={`p-2 rounded-full transition-all ${
                           active === s.id
-                            ? "bg-orange-100 dark:bg-orange-900/30"
+                            ? "bg-blue-100 dark:bg-blue-900/30"
                             : "bg-gray-100 dark:bg-gray-700"
                         }`}
                       >
@@ -129,10 +129,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Shield
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Why We Use Cookies</h2>
@@ -145,7 +145,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       Secure authentication using OAuth with Google, GitHub, and
@@ -155,7 +155,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       Remembering your preferences and settings across sessions
@@ -164,7 +164,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       Analyzing traffic patterns to improve our services and
@@ -174,7 +174,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       Personalizing content to match your interests and needs
@@ -188,10 +188,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Cookie
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">
@@ -200,7 +200,7 @@ const Page = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">
                       Essential Cookies
                     </h3>
@@ -210,7 +210,7 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">
                       Performance Cookies
                     </h3>
@@ -220,7 +220,7 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">
                       Functional Cookies
                     </h3>
@@ -230,7 +230,7 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <h3 className="font-semibold text-lg mb-2 text-gray-800 dark:text-white">
                       Marketing Cookies
                     </h3>
@@ -244,7 +244,7 @@ const Page = () => {
                 {/* Detailed Cookie Table */}
                 <div className="mt-12">
                   <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center gap-2">
-                    <Clock size={20} className="text-orange-500" /> Detailed
+                    <Clock size={20} className="text-blue-500" /> Detailed
                     Cookie Information
                   </h3>
                   <div className="overflow-x-auto">
@@ -299,17 +299,17 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Settings
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Managing Cookies</h2>
                 </div>
 
-                <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl mb-8">
-                  <h3 className="font-semibold text-lg mb-3 text-orange-800 dark:text-orange-300">
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-8">
+                  <h3 className="font-semibold text-lg mb-3 text-blue-800 dark:text-blue-300">
                     Browser Settings
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
@@ -329,7 +329,7 @@ const Page = () => {
                         href="https://support.google.com/chrome/answer/95647"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-orange-600 dark:text-orange-400 hover:underline"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         Chrome
                       </a>
@@ -338,7 +338,7 @@ const Page = () => {
                         href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-orange-600 dark:text-orange-400 hover:underline"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         Firefox
                       </a>
@@ -347,7 +347,7 @@ const Page = () => {
                         href="https://support.apple.com/guide/safari/manage-cookies-and-website-data-sfri11471/mac"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-orange-600 dark:text-orange-400 hover:underline"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         Safari
                       </a>
@@ -356,7 +356,7 @@ const Page = () => {
                         href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-orange-600 dark:text-orange-400 hover:underline"
+                        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         Edge
                       </a>
@@ -364,9 +364,9 @@ const Page = () => {
                   </div>
                 </div>
 
-                <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
-                  <h3 className="font-semibold text-lg mb-3 text-orange-800 dark:text-orange-300 flex items-center gap-2">
-                    <AlertCircle size={20} className="text-orange-500" />{" "}
+                <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+                  <h3 className="font-semibold text-lg mb-3 text-blue-800 dark:text-blue-300 flex items-center gap-2">
+                    <AlertCircle size={20} className="text-blue-500" />{" "}
                     Important Note
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">
@@ -383,10 +383,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Mail
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Contact Us</h2>
@@ -403,7 +403,7 @@ const Page = () => {
                   </p>
                   <a
                     href="mailto:cookies@PostGen.site"
-                    className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
                   >
                     <Mail size={18} />
                     <span>cookies@PostGen.site</span>

@@ -81,7 +81,7 @@ const Page = () => {
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Privacy{" "}
-              <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 dark:from-orange-200 dark:via-orange-500 dark:to-orange-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 dark:from-blue-200 dark:via-blue-500 dark:to-blue-600 bg-clip-text text-transparent">
                 Policy
               </span>
             </h1>
@@ -105,7 +105,7 @@ const Page = () => {
                       href={`#${s.id}`}
                       className={`flex items-center gap-4 p-3 rounded-lg transition-all duration-300 ${
                         active === s.id
-                          ? "bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 shadow-md"
+                          ? "bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 shadow-md"
                           : "hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400"
                       }`}
                       onClick={() => setActive(s.id)}
@@ -113,7 +113,7 @@ const Page = () => {
                       <span
                         className={`p-2 rounded-full transition-all ${
                           active === s.id
-                            ? "bg-orange-100 dark:bg-orange-900/30"
+                            ? "bg-blue-100 dark:bg-blue-900/30"
                             : "bg-gray-100 dark:bg-gray-700"
                         }`}
                       >
@@ -139,10 +139,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Shield
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Information We Collect</h2>
@@ -156,7 +156,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <User
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       <strong>Account information:</strong> Name, email address,
@@ -166,7 +166,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <User
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       <strong>Profile information:</strong> Information you
@@ -176,7 +176,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <Mail
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       <strong>Communications:</strong> Support messages,
@@ -186,7 +186,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <Server
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       <strong>Usage data:</strong> Analytics and usage patterns
@@ -201,10 +201,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Eye
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">
@@ -219,7 +219,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To provide and operate our services
@@ -228,7 +228,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To communicate with you about our services
@@ -237,7 +237,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To improve and personalize your experience
@@ -246,7 +246,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To detect and prevent fraud or abuse
@@ -255,7 +255,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To comply with legal obligations
@@ -269,10 +269,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Share2
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Information Sharing</h2>
@@ -286,7 +286,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       With your explicit consent
@@ -295,7 +295,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To comply with legal requirements
@@ -304,7 +304,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       To protect our rights and safety
@@ -313,7 +313,7 @@ const Page = () => {
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
-                      className="text-orange-500 mr-3 mt-0.5 flex-shrink-0"
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
                       With trusted service providers who assist our operations
@@ -327,10 +327,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Lock
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Data Security</h2>
@@ -350,10 +350,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Key
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Your Rights</h2>
@@ -362,9 +362,9 @@ const Page = () => {
                   You have the right to:
                 </p>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <Eye size={18} className="text-orange-500" />
+                      <Eye size={18} className="text-blue-500" />
                       <h3 className="font-semibold text-gray-800 dark:text-white">
                         Access Information
                       </h3>
@@ -375,9 +375,9 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <User size={18} className="text-orange-500" />
+                      <User size={18} className="text-blue-500" />
                       <h3 className="font-semibold text-gray-800 dark:text-white">
                         Update Information
                       </h3>
@@ -388,9 +388,9 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <Trash2 size={18} className="text-orange-500" />
+                      <Trash2 size={18} className="text-blue-500" />
                       <h3 className="font-semibold text-gray-800 dark:text-white">
                         Delete Account
                       </h3>
@@ -400,9 +400,9 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <Bell size={18} className="text-orange-500" />
+                      <Bell size={18} className="text-blue-500" />
                       <h3 className="font-semibold text-gray-800 dark:text-white">
                         Opt Out
                       </h3>
@@ -412,9 +412,9 @@ const Page = () => {
                     </p>
                   </div>
 
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-orange-500">
+                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
                     <div className="flex items-center gap-3 mb-2">
-                      <Download size={18} className="text-orange-500" />
+                      <Download size={18} className="text-blue-500" />
                       <h3 className="font-semibold text-gray-800 dark:text-white">
                         Data Portability
                       </h3>
@@ -431,10 +431,10 @@ const Page = () => {
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-orange-100 dark:bg-orange-900/30 rounded-full">
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
                     <Mail
                       size={24}
-                      className="text-orange-600 dark:text-orange-400"
+                      className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
                   <h2 className="text-2xl font-bold">Contact Us</h2>
@@ -451,7 +451,7 @@ const Page = () => {
                   </p>
                   <a
                     href="mailto:privacy@PostGen.site"
-                    className="inline-flex items-center justify-center gap-2 bg-orange-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-orange-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
+                    className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
                   >
                     <Mail size={18} />
                     <span>privacy@PostGen.site</span>

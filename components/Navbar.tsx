@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, Network } from "lucide-react";
+import { Menu, X, Network, SquareSquare } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
 
@@ -13,7 +13,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-0 fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/40">
+      <nav className="py-0 fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/30">
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
           <div className="flex items-center justify-between h-16">
             {/* Logo + SearchBar */}
@@ -25,12 +25,10 @@ export default function Navbar() {
                   sidebarOpen && "opacity-40 blur-[2px]"
                 )}
               >
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
-                  <Network className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-600">
+                  <SquareSquare className="w-5 h-5 text-white" />
                 </div>
-                <span className="text-xl font-bold text-orange-600">
-                  PostGen
-                </span>
+                <span className="text-xl font-bold text-blue-600">PostGen</span>
               </Link>
               {/* 
               <div className="hidden md:block">
@@ -42,17 +40,12 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-6">
               <div className="flex items-center space-x-2">
                 <NavLink href="/" text="Home" active={pathname === "/"} />
-                <NavLink
-                  href="/docs"
-                  text="Docs"
-                  active={pathname.startsWith("/docs")}
-                />
               </div>
               <ThemeToggle />
 
               <Link
                 href="/sign-in"
-                className="font-semibold px-4 py-2 bg-blue-400 hover:bg-blue-500 rounded-md text-white"
+                className="font-semibold text-sm px-4 py-2 bg-blue-400 hover:bg-blue-500 rounded-md text-white"
               >
                 Get Started
               </Link>
@@ -62,7 +55,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2 md:hidden">
               <ThemeToggle />
               <button
-                className="p-2 rounded-md text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-700/20"
+                className="p-2 rounded-md text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-700/20"
                 onClick={() => setSidebarOpen(true)}
               >
                 <Menu className="h-6 w-6" />
@@ -102,14 +95,14 @@ export default function Navbar() {
               className="flex items-center gap-2"
               onClick={() => setSidebarOpen(false)}
             >
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-orange-600">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-blue-600">
                 <Network className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-orange-600">PostGen</span>
+              <span className="text-xl font-bold text-blue-600">PostGen</span>
             </Link>
             <button
               onClick={() => setSidebarOpen(false)}
-              className="text-orange-600"
+              className="text-blue-600"
             >
               <X className="h-6 w-6" />
             </button>
@@ -128,7 +121,7 @@ export default function Navbar() {
           <div className="p-4">
             <Link
               href="/sign-in"
-              className="block w-full text-center text-sm font-semibold px-4 py-2 bg-orange-700 hover:bg-orange-800 rounded-md text-white"
+              className="block w-full text-center text-sm font-semibold px-4 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white"
               onClick={() => setSidebarOpen(false)}
             >
               Get Started
@@ -158,8 +151,8 @@ function NavLink({
       className={clsx(
         "px-3.5 py-1.5 text-sm flex items-center space-x-2 rounded-xl font-medium transition-colors",
         active
-          ? "bg-orange-600/15 text-orange-600"
-          : "text-gray-600 dark:text-gray-400 hover:bg-orange-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
+          ? "bg-blue-600/15 text-blue-600"
+          : "text-gray-600 dark:text-gray-400 hover:bg-blue-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
       )}
     >
       <span>{text}</span>

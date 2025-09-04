@@ -13,7 +13,7 @@ const Page = () => {
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-800 dark:text-white/90">
                 Contact{" "}
-                <span className="bg-gradient-to-r from-orange-300 via-orange-500 to-orange-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-transparent">
                   Us
                 </span>
               </h1>

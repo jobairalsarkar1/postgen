@@ -7,9 +7,13 @@ type Theme = "light" | "dark" | "system";
 
 interface ThemeToggleProps {
   showText?: boolean;
+  direction?: "up" | "down"; // new prop
 }
 
-const ThemeToggle = ({ showText = false }: ThemeToggleProps) => {
+const ThemeToggle = ({
+  showText = false,
+  direction = "down",
+}: ThemeToggleProps) => {
   const [theme, setTheme] = useState<Theme>("system");
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -97,7 +101,7 @@ const ThemeToggle = ({ showText = false }: ThemeToggleProps) => {
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-3 rounded-lg border border-gray-300 bg-white dark:bg-[#020817] dark:border-[#1e283a] hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
+        className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-gray-300 bg-white dark:bg-[#020817] dark:border-[#1e283a] hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
       >
         {getThemeIcon(theme)}
         {showText && <span>{getThemeLabel(theme)}</span>}
@@ -105,7 +109,10 @@ const ThemeToggle = ({ showText = false }: ThemeToggleProps) => {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute right-0 mt-2 w-36 rounded-lg shadow-lg bg-white dark:bg-[#020817] border border-gray-200 dark:border-[#1e283a] z-50">
+        <div
+          className={`absolute right-0 w-36 rounded-lg shadow-lg bg-white dark:bg-[#020817] border border-gray-200 dark:border-[#1e283a] z-50
+            ${direction === "up" ? "bottom-full mb-2" : "mt-2"}`}
+        >
           <ul className="px-1.5 py-1.5">
             <li>
               <button
