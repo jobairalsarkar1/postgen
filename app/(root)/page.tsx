@@ -6,8 +6,12 @@ import React from "react";
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <FAQSection />
+      <section id="home">
+        <HeroSection />
+      </section>
+      <section id="faq">
+        <FAQSection />
+      </section>
       <Footer />
     </>
   );

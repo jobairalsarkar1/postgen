@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Menu, X, SquareSquare } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
+import NavLink from "./NavLink"; // Now imported as a separate component
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -13,68 +14,95 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-0 fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-b-gray-300 dark:border-b-gray-800 bg-white/90 dark:bg-black/30">
+      <nav
+        className={clsx(
+          "fixed top-0 left-0 right-0 z-50",
+          "bg-white/30 dark:bg-black/30 backdrop-blur-lg border-b border-gray-200 dark:border-gray-700",
+          "md:bg-transparent md:dark:bg-transparent md:backdrop-blur-none md:border-none"
+        )}
+      >
         <div className="container mx-auto px-4 lg:px-8 xl:px-16">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo + SearchBar */}
-            <div className="flex items-center gap-12">
-              <Link
-                href="/"
-                className={clsx(
-                  "flex items-center gap-2 group transition-all duration-300 ease-in-out",
-                  sidebarOpen && "opacity-40 blur-[2px]"
-                )}
-              >
-                <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
-                  <SquareSquare className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-                  PostGen AI
-                </span>
-              </Link>
-              {/* 
-              <div className="hidden md:block">
-                <SearchBar />
-              </div> */}
-            </div>
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Desktop View */}
+            <div className="hidden md:flex items-center justify-between w-full gap-6">
+              {/* Branding */}
+              <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md shadow-sm">
+                <Link href="/" className="flex items-center gap-2">
+                  <div className="w-9 h-9 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                    <SquareSquare className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                    PostGen AI
+                  </span>
+                </Link>
+              </div>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-4">
-              <div className="flex items-center space-x-2">
+              {/* Navigation Links */}
+              <div className="flex items-center gap-4 px-4 py-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md shadow-sm">
                 <NavLink
                   href="/"
                   text="Home"
                   active={pathname === "/"}
                   desktop
                 />
+                <NavLink
+                  href="#features"
+                  text="Features"
+                  active={pathname === "/#features"}
+                  desktop
+                />
+                <NavLink
+                  href="#faq"
+                  text="FAQ"
+                  active={pathname === "/#faq"}
+                  desktop
+                />
               </div>
 
-              <ThemeToggle />
-
-              <Link
-                href="/sign-in"
-                className="text-sm font-semibold px-4 py-2 rounded-md transition hover:bg-blue-100 dark:hover:bg-blue-800/30"
-              >
-                Sign In
-              </Link>
-
-              <Link
-                href="/sign-in"
-                className="font-semibold text-sm px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white rounded-md"
-              >
-                Get Started
-              </Link>
+              {/* Controls */}
+              <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md shadow-sm">
+                <ThemeToggle />
+                <Link
+                  href="/sign-in"
+                  className="text-sm font-semibold px-4 py-2 rounded-md transition hover:bg-blue-100 dark:hover:bg-blue-800/30"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/sign-in"
+                  className="font-semibold text-sm px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white rounded-md"
+                >
+                  Get Started
+                </Link>
+              </div>
             </div>
 
-            {/* Mobile Theme Toggle + Menu Button */}
-            <div className="flex items-center gap-2 md:hidden">
-              <ThemeToggle />
-              <button
-                className="p-2 rounded-md text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-700/20"
-                onClick={() => setSidebarOpen(true)}
+            {/* Mobile View */}
+            <div className="flex md:hidden items-center justify-between w-full">
+              <Link
+                href="/"
+                className={clsx(
+                  "flex items-center gap-2 transition-all duration-300",
+                  sidebarOpen && "blur-sm opacity-30 pointer-events-none"
+                )}
               >
-                <Menu className="h-6 w-6" />
-              </button>
+                <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                  <SquareSquare className="w-5 h-5 text-white" />
+                </div>
+                <span className="text-lg font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                  PostGen AI
+                </span>
+              </Link>
+
+              <div className="flex items-center gap-2">
+                <ThemeToggle />
+                <button
+                  onClick={() => setSidebarOpen(true)}
+                  className="p-2 rounded-md text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-700/20"
+                >
+                  <Menu className="h-6 w-6" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -83,7 +111,7 @@ export default function Navbar() {
       {/* Mobile Sidebar Overlay */}
       <div
         className={clsx(
-          "fixed inset-0 z-40 transition-opacity bg-black/60 md:hidden",
+          "fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden",
           {
             "opacity-100 pointer-events-auto": sidebarOpen,
             "opacity-0 pointer-events-none": !sidebarOpen,
@@ -92,10 +120,10 @@ export default function Navbar() {
         onClick={() => setSidebarOpen(false)}
       />
 
-      {/* Sidebar Panel */}
+      {/* Mobile Sidebar Panel */}
       <div
         className={clsx(
-          "fixed top-0 right-0 z-50 h-full w-64 bg-white dark:bg-black shadow-lg transition-transform duration-300 md:hidden",
+          "fixed top-0 right-0 z-50 h-full w-64 bg-white/80 dark:bg-black/90 backdrop-blur-xl shadow-xl transition-transform duration-300 md:hidden",
           {
             "translate-x-0": sidebarOpen,
             "translate-x-full": !sidebarOpen,
@@ -103,12 +131,11 @@ export default function Navbar() {
         )}
       >
         <div className="flex flex-col h-full">
-          {/* Top: Logo + Close */}
-          <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center justify-between p-4">
             <Link
               href="/"
-              className="flex items-center gap-2"
               onClick={() => setSidebarOpen(false)}
+              className="flex items-center gap-2"
             >
               <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                 <SquareSquare className="w-5 h-5 text-white" />
@@ -125,12 +152,23 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Middle: Nav Links */}
-          <div className="flex-1 flex flex-col space-y-1 p-4 overflow-y-scroll">
+          <div className="flex-1 flex flex-col space-y-1 p-4 overflow-y-auto">
             <NavLink
               href="/"
               text="Home"
               active={pathname === "/"}
+              onClick={() => setSidebarOpen(false)}
+            />
+            <NavLink
+              href="#features"
+              text="Features"
+              active={pathname === "/#features"}
+              onClick={() => setSidebarOpen(false)}
+            />
+            <NavLink
+              href="#faq"
+              text="FAQ"
+              active={pathname === "/#faq"}
               onClick={() => setSidebarOpen(false)}
             />
           </div>
@@ -147,36 +185,5 @@ export default function Navbar() {
         </div>
       </div>
     </>
-  );
-}
-
-function NavLink({
-  href,
-  text,
-  active,
-  onClick,
-  desktop,
-}: {
-  href: string;
-  text: string;
-  active: boolean;
-  onClick?: () => void;
-  desktop?: boolean;
-}) {
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className={clsx(
-        "px-3.5 py-1.5 text-sm flex items-center space-x-2 rounded-xl font-medium transition-colors",
-        desktop
-          ? "text-gray-700 dark:text-gray-300 hover:text-blue-600"
-          : active
-          ? "bg-blue-600/15 text-blue-600"
-          : "text-gray-600 dark:text-gray-400 hover:bg-blue-600/30 hover:text-gray-700/80 dark:hover:text-white/80"
-      )}
-    >
-      <span>{text}</span>
-    </Link>
   );
 }

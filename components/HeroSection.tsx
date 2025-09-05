@@ -8,7 +8,7 @@ import DisplayUI from "./DisplayUI";
 
 const HeroSection = () => {
   return (
-    <section className="pt-20 relative min-h-screen px-4 sm:px-4 md:px-6 overflow-hidden bg-white dark:bg-[#0e0e10] text-gray-900 dark:text-white">
+    <div className="pt-20 relative min-h-screen px-4 sm:px-4 md:px-6 overflow-hidden bg-white dark:bg-[#0e0e10] text-gray-900 dark:text-white">
       {/* Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100/10 via-transparent to-cyan-100/10 dark:from-blue-900/20 dark:via-transparent dark:to-cyan-900/20" />
 
@@ -109,7 +109,7 @@ const HeroSection = () => {
         {/* Display Placeholder */}
         <DisplayUI />
       </div>
-    </section>
+    </div>
   );
 };
 
