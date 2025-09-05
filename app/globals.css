@@ -83,9 +83,9 @@ body {
     pointer-events: none;
   }
 
-  /* .animate-pulse-soft {
+  .animate-pulse-soft {
     animation: pulse-soft 6s ease-in-out infinite;
-  } */
+  }
 
   @keyframes pulse-soft {
     0%,

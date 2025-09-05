@@ -94,7 +94,7 @@ const HeroSection = () => {
           </p>
           <Link href="/dashboard">
             <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-semibold text-lg px-8 py-2.5 rounded-lg shadow-lg transition duration-300 flex items-center cursor-pointer mx-auto lg:mx-0">
-              Start Creating
+              Start Generating
               <MoveRight className="ml-2 w-5 h-5" />
             </button>
           </Link>
@@ -114,9 +114,9 @@ const HeroSection = () => {
         {/* Right: Display Placeholder */}
         <div className="relative flex justify-center lg:justify-end">
           {/* Glowing Base */}
-          <div className="absolute -bottom-[30px] left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[700px] h-[300px] rounded-full dark-glow animate-pulse-soft z-0" />
+          <div className="absolute -bottom-2 left-1/2 -translate-x-[45%] translate-y-1/2 w-[700px] h-[220px] rounded-full dark-glow animate-pulse-soft z-0" />
           {/* Display UI */}
-          <div className="relative w-[620px] aspect-[16/9] bg-gray-900 border-8 border-gray-700 rounded-2xl shadow-2xl text-white text-xs transform scale-[0.95] origin-top z-10 hover:scale-[1] transition-transform duration-500 ease-out">
+          <div className="relative w-[620px] aspect-[16/9] sm:aspect-[16/10] bg-gray-900 border-8 border-gray-700 rounded-2xl text-white text-xs transform scale-[0.95] origin-top z-10 hover:scale-[1] transition-transform duration-500 ease-out shadow-[0_20px_40px_rgba(0,0,0,0.25),0_10px_20px_rgba(0,0,0,0.15)] dark:shadow-none">
             <div className="h-full grid grid-cols-12 z-20">
               {/* Sidebar */}
               <aside className="col-span-3 bg-gray-800 flex flex-col justify-between p-3">

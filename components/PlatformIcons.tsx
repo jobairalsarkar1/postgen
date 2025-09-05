@@ -6,7 +6,6 @@ import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 const platforms = [
   { name: "LinkedIn", icon: Linkedin },
   { name: "Twitter/X", icon: Twitter },
-  { name: "Reddit", icon: Facebook },
   { name: "Facebook", icon: Facebook },
   { name: "Instagram", icon: Instagram },
 ];
