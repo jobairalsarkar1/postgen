@@ -17,7 +17,7 @@ const HeroSection = () => {
       {/* Background Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-100/10 via-transparent to-cyan-100/10 dark:from-blue-900/20 dark:via-transparent dark:to-cyan-900/20" />
 
-      {/* Circuit-like Pattern with Glow */}
+      {/* Circuit Pattern with Glow */}
       <div className="absolute inset-0 opacity-30 text-blue-400 dark:text-cyan-400 filter drop-shadow-[0_0_8px_rgba(59,130,246,0.6)] dark:drop-shadow-[0_0_12px_rgba(16,185,129,0.8)]">
         <svg
           className="w-full h-full"
@@ -77,9 +77,9 @@ const HeroSection = () => {
       />
 
       {/* Hero Content */}
-      <div className="relative container mx-auto px-6 sm:px-10 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div className="relative container mx-auto px-6 sm:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Left: Text & CTAs */}
-        <div className="text-center lg:text-left lg:pl-8">
+        <div className="text-center lg:text-left lg:pl-6">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             Generate Amazing{" "}
             <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-transparent">
@@ -87,7 +87,7 @@ const HeroSection = () => {
             </span>{" "}
             with AI
           </h1>
-          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+          <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
             Create engaging content for LinkedIn, Twitter, Reddit, and more in
             seconds. Let AI craft your voice while you focus on growing your
             audience.
@@ -112,12 +112,13 @@ const HeroSection = () => {
         </div>
 
         {/* Right: Display Placeholder */}
-        <div className="flex justify-center lg:justify-end">
-          {/* <!-- Display UI --> */}
-          <div className="w-[620px] aspect-[16/9] bg-gray-900 border-8 border-gray-700 rounded-2xl shadow-2xl overflow-hidden text-white text-xs transform scale-[1] origin-top">
-            {/* <!-- App Layout --> */}
-            <div className="h-full grid grid-cols-12">
-              {/* <!-- Sidebar --> */}
+        <div className="relative flex justify-center lg:justify-end">
+          {/* Glowing Base */}
+          <div className="absolute -bottom-[30px] left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[700px] h-[300px] rounded-full dark-glow animate-pulse-soft z-0" />
+          {/* Display UI */}
+          <div className="relative w-[620px] aspect-[16/9] bg-gray-900 border-8 border-gray-700 rounded-2xl shadow-2xl text-white text-xs transform scale-[0.95] origin-top z-10 hover:scale-[1] transition-transform duration-500 ease-out">
+            <div className="h-full grid grid-cols-12 z-20">
+              {/* Sidebar */}
               <aside className="col-span-3 bg-gray-800 flex flex-col justify-between p-3">
                 <div>
                   <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
@@ -150,7 +151,7 @@ const HeroSection = () => {
                   </nav>
                 </div>
 
-                {/* <!-- User Info --> */}
+                {/* User Info */}
                 <div className="mt-4 bg-gray-700 rounded-lg p-2 flex items-center space-x-2 text-[9px]">
                   <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center font-bold text-white text-[8px]">
                     AJ
@@ -166,17 +167,17 @@ const HeroSection = () => {
                 </div>
               </aside>
 
-              {/* <!-- Main Area --> */}
+              {/* Main Area */}
               <main className="col-span-9 flex flex-col h-full">
-                {/* <!-- Header --> */}
+                {/* Header */}
                 <header className="px-3 py-2 bg-gray-850 border-b border-gray-700 text-[10px] flex justify-between items-center">
                   <div className="font-semibold">Create Post</div>
                   <div className="text-gray-400">LinkedIn</div>
                 </header>
 
-                {/* <!-- Content Area --> */}
+                {/* Content Area */}
                 <div className="flex-1 px-3 py-2 space-y-2 bg-gray-850 overflow-hidden">
-                  {/* <!-- Prompt --> */}
+                  {/* Prompt */}
                   <div className="bg-gray-700 rounded p-2">
                     <div className="text-gray-400 text-[9px] mb-1">Prompt</div>
                     <p className="text-[10px]">
@@ -184,7 +185,7 @@ const HeroSection = () => {
                     </p>
                   </div>
 
-                  {/* <!-- Generated Post --> */}
+                  {/* Generated Post */}
                   <div className="bg-gray-800 rounded p-2 border border-gray-700 text-[10px]">
                     <div className="text-gray-400 text-[9px] mb-1">
                       Generated
@@ -199,7 +200,7 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                {/* <!-- Footer --> */}
+                {/* Footer */}
                 <footer className="px-3 py-2 bg-gray-850 border-t border-gray-700">
                   <form className="flex items-center bg-gray-800 border border-gray-700 rounded px-2 py-1 space-x-2">
                     <svg

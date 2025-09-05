@@ -3,38 +3,12 @@
 import { clsx } from "clsx";
 import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 
-// Theme-matching platform definitions
 const platforms = [
-  {
-    name: "LinkedIn",
-    icon: Linkedin,
-    color: "bg-blue-600",
-    description: "Professional networking",
-  },
-  {
-    name: "Twitter/X",
-    icon: Twitter,
-    color: "bg-black",
-    description: "Microblogging platform",
-  },
-  {
-    name: "Reddit",
-    icon: Facebook,
-    color: "bg-orange-600",
-    description: "Community discussions",
-  },
-  {
-    name: "Facebook",
-    icon: Facebook,
-    color: "bg-blue-800",
-    description: "Social networking",
-  },
-  {
-    name: "Instagram",
-    icon: Instagram,
-    color: "bg-pink-600",
-    description: "Photo sharing",
-  },
+  { name: "LinkedIn", icon: Linkedin },
+  { name: "Twitter/X", icon: Twitter },
+  { name: "Reddit", icon: Facebook },
+  { name: "Facebook", icon: Facebook },
+  { name: "Instagram", icon: Instagram },
 ];
 
 interface PlatformIconsProps {
@@ -48,6 +22,10 @@ export function PlatformIcons({
   showLabels = false,
   variant = "static",
 }: PlatformIconsProps) {
+  const iconBgClass =
+    "backdrop-blur-sm rounded-lg shadow-md transition-transform " +
+    "bg-blue-200/40 border border-blue-500/50 text-blue-900 dark:bg-white/10 dark:border-white/20 dark:text-white";
+
   if (variant === "marquee") {
     return (
       <div className={clsx("relative w-full overflow-hidden", className)}>
@@ -56,7 +34,6 @@ export function PlatformIcons({
         {/* Right gradient overlay */}
         <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-        {/* Marquee animation container */}
         <div className="flex animate-marquee">
           {[...platforms, ...platforms].map((platform, index) => {
             const Icon = platform.icon;
@@ -64,8 +41,8 @@ export function PlatformIcons({
               <div key={index} className="flex-shrink-0 mx-4">
                 <div
                   className={clsx(
-                    "w-10 h-10 rounded-lg flex items-center justify-center text-white backdrop-blur-sm bg-white/10 border border-white/20",
-                    platform.color
+                    "w-10 h-10 flex items-center justify-center",
+                    iconBgClass
                   )}
                 >
                   <Icon className="w-5 h-5" />
@@ -92,8 +69,8 @@ export function PlatformIcons({
           >
             <div
               className={clsx(
-                "w-10 h-10 rounded-lg flex items-center justify-center text-white",
-                platform.color
+                "w-10 h-10 flex items-center justify-center",
+                iconBgClass
               )}
             >
               <Icon className="w-5 h-5" />
@@ -101,9 +78,6 @@ export function PlatformIcons({
             {showLabels && (
               <div className="text-center">
                 <p className="text-sm font-medium">{platform.name}</p>
-                <p className="text-xs text-muted-foreground">
-                  {platform.description}
-                </p>
               </div>
             )}
           </div>
