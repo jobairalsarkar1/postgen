@@ -14,7 +14,7 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="pt-20 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 relative z-10">
+    <div className="pt-24 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 relative z-10">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
