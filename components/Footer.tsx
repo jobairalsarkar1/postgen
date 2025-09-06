@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   Github,
@@ -10,49 +8,16 @@ import {
   MoveRight,
   SquareSquare,
 } from "lucide-react";
-import { useState } from "react";
-import axios from "axios";
 import ThemeToggle from "./theme/ThemeToggle";
 import CustomBadge from "./CustomBadge";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [buttonText, setButtonText] = useState("Subscribe");
-
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!email) return;
-
-    try {
-      await axios.post("/api/subscribe", { email });
-
-      setSubscribed(true);
-      setButtonText("Subscribed!");
-      setEmail("");
-
-      setTimeout(() => {
-        setSubscribed(false);
-        setButtonText("Subscribe");
-      }, 2000);
-    } catch (error) {
-      console.error("Subscription failed:", error);
-      setSubscribed(true);
-      setButtonText("Subscribed!");
-      setEmail("");
-      setTimeout(() => {
-        setSubscribed(false);
-        setButtonText("Subscribe");
-      }, 2000);
-    }
-  };
 
   return (
     <footer className="bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-24">
       {/* CTA Section */}
-      <div className="text-center px-4 mb-24 pb-10">
+      <div className="text-center px-4 mb-24">
         <CustomBadge text="Get Started Today" icon={Sparkles} />
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Ready to&nbsp;
@@ -65,7 +30,6 @@ const Footer = () => {
           Join thousands of creators and developers who save hours every week
           with AI-powered tools.
         </p>
-        {/* Buttons row always inline, smaller on mobile */}
         <div className="flex flex-row justify-center gap-3 flex-wrap">
           <Link
             href="/account"
@@ -77,127 +41,81 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Separator */}
+      <div className="mx-auto my-12 h-1 w-60 rounded-full bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+
       {/* Main Footer */}
-      <div className="mx-auto px-6 lg:px-12 xl:px-20 pb-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-x-24 text-center sm:text-left">
-          {/* Brand Section */}
-          <div>
-            <div className="flex items-center justify-center sm:justify-start gap-2 mb-4">
-              <div className="w-9 h-9 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
-                <SquareSquare className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl tracking-tight font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-                PostGen AI
-              </span>
-            </div>
-            <p className="text-sm leading-snug text-gray-500 dark:text-gray-400 mb-6 max-w-sm">
-              AI-powered social content generation platform. Build faster,
-              engage smarter, and focus on what matters most.
-            </p>
-            <div className="flex items-center justify-center sm:justify-start gap-4">
-              <Link
-                href="#"
-                className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-              >
-                <Github className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-              >
-                <Twitter className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-              >
-                <Linkedin className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-              >
-                <Mail className="w-5 h-5" />
-              </Link>
-            </div>
+      <div className="mx-auto px-6 lg:px-12 xl:px-20 text-center space-y-8">
+        {/* Brand */}
+        <div className="flex flex-col items-center gap-2">
+          <div className="w-9 h-9 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+            <SquareSquare className="w-6 h-6 text-white" />
           </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/docs"
-                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-                >
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/account"
-                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-                >
-                  Get Started
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h3 className="font-semibold mb-4">Stay Updated</h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              Get the latest news and AI tips straight to your inbox.
-            </p>
-            <form
-              onSubmit={handleSubscribe}
-              className="flex flex-col sm:flex-row gap-3"
+          <span className="text-2xl tracking-tight font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+            PostGen AI
+          </span>
+          <p className="text-sm leading-snug text-gray-500 dark:text-gray-400 max-w-sm">
+            AI-powered social content generation platform. Build faster, engage
+            smarter, and focus on what matters most.
+          </p>
+          <div className="flex items-center gap-4 mt-2">
+            <Link
+              href="#"
+              className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
             >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-[#1a1a1a] text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <button
-                type="submit"
-                className={`px-5 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white text-sm transition cursor-pointer ${
-                  subscribed ? "scale-105" : ""
-                }`}
-              >
-                {buttonText}
-              </button>
-            </form>
+              <Github className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+            >
+              <Twitter className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+            >
+              <Linkedin className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#"
+              className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+            >
+              <Mail className="w-5 h-5" />
+            </Link>
           </div>
         </div>
 
-        {/* Separator */}
-        <div className="mt-8 mb-6 h-px bg-blue-600/30" />
+        <div className="flex justify-center gap-6">
+          <Link
+            href="/docs"
+            className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+          >
+            How It Works
+          </Link>
+          <Link
+            href="/account"
+            className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+          >
+            Get Started
+          </Link>
+          <Link
+            href="/contact"
+            className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
+          >
+            Contact
+          </Link>
+        </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500 dark:text-gray-400 py-4">
-          {/* Left */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 py-4">
           <p>© {currentYear} PostGen. All rights reserved.</p>
 
-          {/* Center - Theme Toggle */}
           <div className="flex items-center gap-4">
             Theme:
             <ThemeToggle showText direction="up" />
           </div>
 
-          {/* Right - Policies */}
           <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
             <Link href="/privacy" className="hover:text-blue-500 transition">
               Privacy Policy
