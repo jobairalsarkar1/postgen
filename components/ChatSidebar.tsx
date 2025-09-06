@@ -2,7 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { SquareSquare, PanelLeft, User, Clock, SquarePlus } from "lucide-react";
+import {
+  SquareSquare,
+  PanelLeft,
+  Clock,
+  SquarePlus,
+  Settings,
+} from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
 
 const ChatSidebar = () => {
@@ -77,14 +83,14 @@ const ChatSidebar = () => {
               href: "/chat/new",
             },
             {
-              icon: <User className="w-5 h-5 text-blue-500" />,
-              label: "Account",
-              href: "/account",
-            },
-            {
               icon: <Clock className="w-5 h-5 text-blue-500" />,
               label: "History",
               href: "/history",
+            },
+            {
+              icon: <Settings className="w-5 h-5 text-blue-500" />,
+              label: "Settings",
+              href: "/settings",
             },
           ].map((item, i) => (
             <Link
@@ -101,7 +107,7 @@ const ChatSidebar = () => {
             </Link>
           ))}
           {!collapsed && (
-            <div className="px-2 text-sm flex items-center gap-4">
+            <div className="px-2 mt-3 text-sm flex items-center gap-4">
               Theme:
               <ThemeToggle showText />
             </div>
