@@ -59,7 +59,7 @@ const HeroSection = () => {
       {/* Floating Shapes */}
       <div className="absolute top-20 left-10 w-36 h-36 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20 dark:from-blue-700/30 dark:to-cyan-700/30 blur-3xl animate-pulse" />
       <div className="absolute top-40 right-20 w-28 h-28 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/20 dark:from-cyan-700/30 dark:to-blue-700/30 blur-2xl animate-pulse delay-1000" />
-      <div className="absolute bottom-40 left-1/4 w-20 h-20 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 dark:from-blue-800/40 dark:to-cyan-800/40 blur-xl animate-pulse delay-500" />
+      <div className="absolute bottom-50 left-1/4 w-20 h-20 rounded-full bg-gradient-to-br from-blue-500/30 to-cyan-500/30 dark:from-blue-800/40 dark:to-cyan-800/40 blur-xl animate-pulse delay-500" />
 
       {/* Grid Pattern */}
       <div

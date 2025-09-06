@@ -50,9 +50,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-20">
+    <footer className="bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-24">
       {/* CTA Section */}
-      <div className="text-center px-4 mb-24 py-8">
+      <div className="text-center px-4 mb-24 pb-10">
         <CustomBadge text="Get Started Today" icon={Sparkles} />
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Ready to&nbsp;

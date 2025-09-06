@@ -14,7 +14,11 @@ const FAQSection = () => {
   };
 
   return (
-    <div className="pt-24 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 relative z-10">
+    <div className="relative pt-24 pb-10 bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 z-10">
+      {/* Floating Shapes */}
+      <div className="absolute left-10 bottom-10 w-34 h-34 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20 dark:from-blue-700/30 dark:to-cyan-700/30 blur-3xl animate-pulse" />
+      <div className="absolute top-40 right-20 w-28 h-28 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-400/20 dark:from-cyan-700/30 dark:to-blue-700/30 blur-2xl animate-pulse delay-1000" />
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

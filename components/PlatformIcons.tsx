@@ -29,9 +29,9 @@ export function PlatformIcons({
     return (
       <div className={clsx("relative w-full overflow-hidden", className)}>
         {/* Left gradient overlay */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute -left-1 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-[#0e0e10] to-transparent z-10 pointer-events-none" />
         {/* Right gradient overlay */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-[#0e0e10] to-transparent z-10 pointer-events-none" />
 
         <div className="flex animate-marquee">
           {[...platforms, ...platforms].map((platform, index) => {
