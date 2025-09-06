@@ -74,7 +74,7 @@ const AccordionItem = ({
     >
       <button
         onClick={() => toggle(index)}
-        className="w-full flex justify-between items-center px-6 py-5 text-left text-lg font-semibold text-gray-800 dark:text-white tracking-tight transition-colors duration-300 cursor-pointer"
+        className="w-full flex justify-between items-center px-6 py-5 text-left text-lg font-medium text-gray-800 dark:text-white tracking-wider transition-colors duration-300 cursor-pointer"
       >
         <span className="transition-colors duration-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
           {faq.question}

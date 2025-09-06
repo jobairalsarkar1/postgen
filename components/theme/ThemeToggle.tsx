@@ -101,10 +101,12 @@ const ThemeToggle = ({
       {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-2.5 rounded-lg border border-gray-300 bg-white dark:bg-[#020817] dark:border-[#1e283a] hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer"
+        className={`flex items-center gap-2 px-3 rounded-lg border border-gray-300 bg-white dark:bg-[#020817] dark:border-[#1e283a] hover:bg-gray-100 dark:hover:bg-gray-700 transition cursor-pointer ${
+          showText ? " py-1.5" : " py-2.5"
+        }`}
       >
         {getThemeIcon(theme)}
-        {showText && <span>{getThemeLabel(theme)}</span>}
+        {showText && <span className="text-sm">{getThemeLabel(theme)}</span>}
       </button>
 
       {/* Dropdown */}

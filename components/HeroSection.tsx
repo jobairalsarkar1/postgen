@@ -74,7 +74,7 @@ const HeroSection = () => {
       <div className="relative container mx-auto px-6 sm:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Text & CTAs */}
         <div className="text-center lg:text-left lg:pl-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-normal mb-6">
             Generate Amazing{" "}
             <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-transparent">
               Social Media Posts

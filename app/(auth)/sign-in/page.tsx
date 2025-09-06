@@ -84,7 +84,7 @@ const SignInPage = () => {
               </button>
 
               {/* Divider */}
-              <div className="relative">
+              <div className="relative pt-1">
                 <div className="absolute inset-0 flex items-center">
                   <div className="w-full border-t border-gray-300 dark:border-gray-700" />
                 </div>
