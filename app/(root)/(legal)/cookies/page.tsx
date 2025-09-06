@@ -65,7 +65,7 @@ const Page = () => {
 
   return (
     <>
-      <section className="min-h-[calc(100vh-64px)] bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 px-6 lg:px-12 py-12">
+      <section className="min-h-[calc(100vh-64px)] bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 px-6 lg:px-12 pt-30 pb-12">
         <div className="w-full max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">

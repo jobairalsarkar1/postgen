@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Menu, X, SquareSquare } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
-import NavLink from "./NavLink"; // Now imported as a separate component
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -28,7 +28,7 @@ export default function Navbar() {
               {/* Branding */}
               <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md shadow-sm">
                 <Link href="/" className="flex items-center gap-2">
-                  <div className="w-9 h-9 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                  <div className="w-8 h-8 bg-gradient-to-tr from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                     <SquareSquare className="w-5 h-5 text-white" />
                   </div>
                   <span className="text-xl font-bold bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">

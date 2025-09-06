@@ -11,9 +11,7 @@ import {
   ChevronRight,
   User,
   Server,
-  Bell,
   Trash2,
-  Download,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -75,7 +73,7 @@ const Page = () => {
 
   return (
     <>
-      <section className="min-h-[calc(100vh-64px)] bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 px-6 lg:px-12 py-12">
+      <section className="min-h-[calc(100vh-64px)] bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 px-6 lg:px-12 pt-30 pb-12">
         <div className="w-full max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16">
@@ -397,30 +395,6 @@ const Page = () => {
                     </div>
                     <p className="text-gray-600 dark:text-gray-400">
                       Delete your account and associated data from our systems.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Bell size={18} className="text-blue-500" />
-                      <h3 className="font-semibold text-gray-800 dark:text-white">
-                        Opt Out
-                      </h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Opt out of marketing communications at any time.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Download size={18} className="text-blue-500" />
-                      <h3 className="font-semibold text-gray-800 dark:text-white">
-                        Data Portability
-                      </h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Request a copy of your data in a machine-readable format.
                     </p>
                   </div>
                 </div>

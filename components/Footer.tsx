@@ -42,7 +42,8 @@ const Footer = () => {
       </div>
 
       {/* Separator */}
-      <div className="mx-auto my-12 h-1 w-60 rounded-full bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0 shadow-[0_0_12px_rgba(59,130,246,0.6)]" />
+      <div className="mx-auto my-12 h-0.5 w-80 rounded-full bg-gradient-to-r from-blue-500/0 via-blue-500/70 to-blue-500/0" />
+      {/* shadow-[0_0_12px_rgba(59,130,246,0.6)] */}
 
       {/* Main Footer */}
       <div className="mx-auto px-6 lg:px-12 xl:px-20 text-center space-y-8">

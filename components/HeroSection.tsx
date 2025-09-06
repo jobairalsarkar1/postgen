@@ -71,7 +71,6 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Hero Content */}
       <div className="relative container mx-auto px-6 sm:px-8 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
         {/* Text & CTAs */}
         <div className="text-center lg:text-left lg:pl-6">

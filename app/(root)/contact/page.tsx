@@ -5,7 +5,7 @@ import { Github, Twitter, Linkedin, Mail, Youtube } from "lucide-react";
 const Page = () => {
   return (
     <>
-      <section className="relative min-h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 py-12">
+      <section className="relative min-h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 pt-30 pb-16">
         <div className="relative z-20 max-w-6xl w-full grid md:grid-cols-2 gap-16 px-6">
           {/* Left side */}
           <div className="flex flex-col justify-between h-full">
