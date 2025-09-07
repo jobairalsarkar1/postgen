@@ -4,7 +4,6 @@ import {
   Shield,
   Cookie,
   Settings,
-  Mail,
   CheckCircle,
   AlertCircle,
   ChevronRight,
@@ -18,7 +17,6 @@ const sections = [
   { id: "why", title: "Why We Use Cookies", icon: <Shield size={20} /> },
   { id: "types", title: "Types of Cookies", icon: <Cookie size={20} /> },
   { id: "managing", title: "Managing Cookies", icon: <Settings size={20} /> },
-  { id: "contact", title: "Contact Us", icon: <Mail size={20} /> },
 ];
 
 const Page = () => {
@@ -374,48 +372,6 @@ const Page = () => {
                     or using key features of our website. Performance and
                     functionality may also be affected when restricting other
                     types of cookies.
-                  </p>
-                </div>
-              </div>
-
-              <div
-                id="contact"
-                className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-                    <Mail
-                      size={24}
-                      className="text-blue-600 dark:text-blue-400"
-                    />
-                  </div>
-                  <h2 className="text-2xl font-bold">Contact Us</h2>
-                </div>
-
-                <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-                  Have questions about our use of cookies or privacy practices?
-                  We&apos;re here to help.
-                </p>
-
-                <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl">
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Email us at:
-                  </p>
-                  <a
-                    href="mailto:cookies@PostGen.site"
-                    className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
-                  >
-                    <Mail size={18} />
-                    <span>cookies@PostGen.site</span>
-                  </a>
-
-                  <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
-                    Last updated:{" "}
-                    {new Date().toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
                   </p>
                 </div>
               </div>

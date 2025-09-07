@@ -26,7 +26,6 @@ const sections = [
   { id: "sharing", title: "Information Sharing", icon: <Share2 size={20} /> },
   { id: "security", title: "Data Security", icon: <Lock size={20} /> },
   { id: "rights", title: "Your Rights", icon: <Key size={20} /> },
-  { id: "contact", title: "Contact Us", icon: <Mail size={20} /> },
 ];
 
 const Page = () => {
@@ -397,51 +396,6 @@ const Page = () => {
                       Delete your account and associated data from our systems.
                     </p>
                   </div>
-                </div>
-              </div>
-
-              <div
-                id="contact"
-                className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-full">
-                    <Mail
-                      size={24}
-                      className="text-blue-600 dark:text-blue-400"
-                    />
-                  </div>
-                  <h2 className="text-2xl font-bold">Contact Us</h2>
-                </div>
-
-                <p className="text-gray-700 dark:text-gray-300 text-lg mb-6">
-                  Have questions about our privacy practices or your personal
-                  data? We&apos;re here to help.
-                </p>
-
-                <div className="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-xl">
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Email us at:
-                  </p>
-                  <a
-                    href="mailto:privacy@PostGen.site"
-                    className="inline-flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-3 rounded-lg font-medium hover:bg-blue-600 transition-all shadow-md hover:shadow-lg w-full sm:w-auto"
-                  >
-                    <Mail size={18} />
-                    <span>privacy@PostGen.site</span>
-                  </a>
-
-                  {/* <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
-                    Last updated: January 15, 2024
-                  </p> */}
-                  <p className="mt-8 text-sm text-gray-500 dark:text-gray-400">
-                    Last updated:{" "}
-                    {new Date().toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </p>
                 </div>
               </div>
             </div>
