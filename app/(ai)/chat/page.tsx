@@ -79,7 +79,7 @@ const Page = () => {
 
       {/* Prompt Box */}
       <div className="w-full flex justify-center pb-6 px-4">
-        <div className="w-full max-w-4xl bg-white/80 dark:bg-gray-800/50 backdrop-blur-md rounded-xl shadow-xl p-4 md:p-6 border border-gray-200 dark:border-gray-800 flex flex-col gap-4">
+        <div className="w-full max-w-4xl bg-white/80 dark:bg-gray-950/50 backdrop-blur-md rounded-xl shadow-xl p-4 border border-gray-200 dark:border-blue-900 flex flex-col gap-4">
           {/* Prompt Input */}
           <textarea
             rows={4}

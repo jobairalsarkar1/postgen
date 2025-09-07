@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { Trash2, Calendar, User, Activity as ActivityIcon } from "lucide-react";
+import {
+  Trash2,
+  Calendar,
+  User,
+  Activity as ActivityIcon,
+  Save,
+  AlertCircle,
+} from "lucide-react";
 import clsx from "clsx";
 
 const tabs = ["Profile Settings", "Activity", "Account"];
@@ -29,24 +36,32 @@ const activityData = [
 
 export default function SettingsPage() {
   const [activeTab, setActiveTab] = useState("Profile Settings");
+  const [name, setName] = useState("Jobair AL Sarkar");
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-800 dark:text-gray-100 px-6 py-10">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 text-gray-800 dark:text-gray-100 px-4 py-8 sm:px-6 sm:py-10">
       <div className="max-w-6xl mx-auto w-full">
-        <h1 className="text-3xl font-bold mb-6">Settings</h1>
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">
+            Settings
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400">
+            Manage your account settings and preferences
+          </p>
+        </div>
 
         {/* Tabs */}
         <div className="mb-8">
-          <div className="inline-flex max-w-full overflow-x-auto gap-2 rounded-lg bg-white dark:bg-gray-800 px-2 py-2 scrollbar-hide">
+          <div className="inline-flex max-w-full overflow-x-auto gap-1 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-1.5 shadow-sm scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={clsx(
-                  "whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium transition-colors",
+                  "whitespace-nowrap px-5 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                   activeTab === tab
-                    ? "bg-blue-600 text-white border-blue-600 shadow"
-                    : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    ? "bg-blue-600 text-white shadow-md"
+                    : "bg-transparent text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50"
                 )}
               >
                 {tab}
@@ -56,114 +71,170 @@ export default function SettingsPage() {
         </div>
 
         {/* Content */}
-        <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4 sm:p-8">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 border border-white/20 dark:border-gray-700/30">
           {activeTab === "Profile Settings" && (
-            <div className="space-y-4">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-1"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  value="jobair@example.com"
-                  disabled
-                  className="w-full px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 cursor-not-allowed"
-                />
+            <div className="space-y-6">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                  <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+                  Profile Information
+                </h2>
               </div>
 
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-1"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  defaultValue="Jobair AL Sarkar"
-                  className="w-full px-4 py-2 rounded-md bg-white dark:bg-gray-950 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+              <div className="space-y-5 max-w-2xl">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    value="jobair@example.com"
+                    disabled
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100/70 dark:bg-gray-800/70 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 cursor-not-allowed transition-colors"
+                  />
+                </div>
 
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                Save Changes
-              </button>
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-2.5 rounded-lg bg-white/70 dark:bg-gray-950/70 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                  />
+                </div>
+
+                <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg">
+                  <Save className="w-4 h-4" />
+                  Save Changes
+                </button>
+              </div>
             </div>
           )}
 
           {activeTab === "Activity" && (
             <div>
-              <h2 className="text-lg font-semibold mb-6 flex items-center gap-2 text-gray-800 dark:text-white">
-                <ActivityIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                Recent Activity
-              </h2>
+              {/* Header */}
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
+                  <ActivityIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                </div>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                  Recent Activity
+                </h2>
+              </div>
 
-              <div className="space-y-4">
-                {activityData.map((activity, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-xl border border-gray-200/50 dark:border-white/10
-          bg-white/70 dark:bg-white/5
-          backdrop-blur-md shadow-sm hover:shadow-md transition-shadow"
-                  >
-                    <div className="flex items-center justify-between flex-wrap gap-4">
-                      {/* Left Side: Prompt and Metadata */}
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-semibold text-gray-800 dark:text-white truncate">
+              {/* Table Format */}
+              <div className="overflow-x-auto">
+                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                  <thead>
+                    <tr className="bg-gray-50 dark:bg-gray-800 text-left">
+                      <th className="w-12 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tl-xl">
+                        No.
+                      </th>
+                      <th className="w-[45%] px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Prompt
+                      </th>
+                      <th className="w-32 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Date
+                      </th>
+                      <th className="w-[20%] px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+                        Platforms
+                      </th>
+                      <th className="w-28 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tr-xl">
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
+                    {activityData.map((activity, i) => (
+                      <tr
+                        key={i}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                      >
+                        {/* Row number */}
+                        <td className="px-3 py-2.5 text-sm font-medium text-gray-900 dark:text-gray-100">
+                          {i + 1}
+                        </td>
+
+                        {/* Prompt */}
+                        <td className="px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 truncate">
                           {activity.prompt}
-                        </h3>
-                        <div className="mt-2 flex items-center gap-3 flex-wrap text-sm text-gray-600 dark:text-white/70">
-                          <span className="text-xs">{activity.date}</span>
+                        </td>
 
-                          <div className="flex items-center gap-2 flex-wrap">
+                        {/* Date */}
+                        <td className="px-3 py-2.5 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                          {activity.date}
+                        </td>
+
+                        {/* Platforms */}
+                        <td className="px-3 py-2.5 whitespace-nowrap">
+                          <div className="flex flex-wrap gap-1">
                             {activity.platforms.map((p, idx) => (
                               <span
                                 key={idx}
-                                className="px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-300/20 text-blue-800 dark:text-blue-100 text-xs font-medium border border-blue-200 dark:border-blue-300/30"
+                                className="px-2 py-1 text-xs rounded-full font-semibold 
+                        bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
                               >
                                 {p}
                               </span>
                             ))}
                           </div>
-                        </div>
-                      </div>
+                        </td>
 
-                      {/* Right Side: Status */}
-                      <div className="shrink-0">
-                        <span
-                          className="inline-block px-3 py-1 text-xs font-semibold rounded-full 
-                bg-green-100 dark:bg-green-300/20 
-                text-green-700 dark:text-green-100 
-                border border-green-300 dark:border-green-400/20
-                backdrop-blur-sm"
-                        >
-                          {activity.status}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+                        {/* Status */}
+                        <td className="px-3 py-2.5 whitespace-nowrap">
+                          <span
+                            className={`px-2 py-1 text-xs rounded-full font-semibold ${
+                              activity.status === "Completed"
+                                ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                                : activity.status === "Pending"
+                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
+                            }`}
+                          >
+                            {activity.status}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
           )}
 
           {activeTab === "Account" && (
             <div>
-              <h2 className="text-lg font-semibold text-red-600 mb-4">
-                Danger Zone
-              </h2>
-              <div className="bg-red-50 dark:bg-red-950 border border-red-300 dark:border-red-700 p-6 rounded-lg">
-                <h3 className="font-semibold text-red-700 dark:text-red-300 mb-2">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
+                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
+                </div>
+                <h2 className="text-xl font-semibold text-red-700 dark:text-red-300">
+                  Danger Zone
+                </h2>
+              </div>
+
+              <div className="bg-red-50/80 dark:bg-red-950/20 border border-red-300/70 dark:border-red-700/50 p-6 rounded-xl backdrop-blur-sm">
+                <h3 className="font-semibold text-red-700 dark:text-red-300 mb-2 flex items-center gap-2">
+                  <Trash2 className="w-4 h-4" />
                   Delete Account
                 </h3>
-                <p className="text-sm text-red-600 dark:text-red-400 mb-4">
+                <p className="text-sm text-red-600/90 dark:text-red-400/90 mb-5">
                   Deleting your account is permanent and cannot be undone. All
                   data will be lost.
                 </p>
-                <button className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md flex items-center gap-2 transition">
+                <button className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg flex items-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg">
                   <Trash2 className="w-4 h-4" />
                   Delete Account
                 </button>
