@@ -70,7 +70,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Content */}
-        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 border border-white/20 dark:border-gray-700/30 overflow-hidden">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-sm dark:shadow-lg p-4 sm:p-6 border border-white/20 dark:border-gray-700/30 overflow-hidden">
           {activeTab === "Profile Settings" && (
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
