@@ -165,10 +165,10 @@ const ChatSidebar = () => {
         </div>
         {!collapsed && (
           <div className="flex flex-col">
-            <span className="text-sm font-medium">
+            <span className="text-sm font-medium truncate max-w-[160px]">
               {user?.name || "Guest User"}
             </span>
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-gray-500 truncate max-w-[180px]">
               {user?.email || "guest@example.com"}
             </span>
           </div>
