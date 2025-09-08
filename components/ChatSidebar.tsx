@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import {
   SquareSquare,
@@ -10,27 +10,29 @@ import {
   Settings,
 } from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
-import { getCurrentUser } from "@/lib/appwrite";
+// import { getCurrentUser } from "@/lib/appwrite";
+import { useUserStore } from "@/stores/userStore";
 
 const ChatSidebar = () => {
+  const user = useUserStore((state) => state.user);
   const [collapsed, setCollapsed] = useState(false);
   const [hoveringLogo, setHoveringLogo] = useState(false);
-  const [user, setUser] = useState<{ name?: string; email?: string } | null>(
-    null
-  );
+  // const [user, setUser] = useState<{ name?: string; email?: string } | null>(
+  //   null
+  // );
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const data = await getCurrentUser();
-      if (data?.user) {
-        setUser({
-          name: data.user.name || data.user.email?.split("@")[0],
-          email: data.user.email,
-        });
-      }
-    };
-    fetchUser();
-  }, []);
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const data = await getCurrentUser();
+  //     if (data?.user) {
+  //       setUser({
+  //         name: data.user.name || data.user.email?.split("@")[0],
+  //         email: data.user.email,
+  //       });
+  //     }
+  //   };
+  //   fetchUser();
+  // }, []);
 
   return (
     <div
