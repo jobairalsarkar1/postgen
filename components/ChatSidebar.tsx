@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   SquareSquare,
@@ -10,10 +10,27 @@ import {
   Settings,
 } from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
+import { getCurrentUser } from "@/lib/appwrite";
 
 const ChatSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [hoveringLogo, setHoveringLogo] = useState(false);
+  const [user, setUser] = useState<{ name?: string; email?: string } | null>(
+    null
+  );
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const data = await getCurrentUser();
+      if (data?.user) {
+        setUser({
+          name: data.user.name || data.user.email?.split("@")[0],
+          email: data.user.email,
+        });
+      }
+    };
+    fetchUser();
+  }, []);
 
   return (
     <div
@@ -144,12 +161,16 @@ const ChatSidebar = () => {
         }`}
       >
         <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
-          J
+          {user?.name ? user.name.charAt(0).toUpperCase() : "G"}
         </div>
         {!collapsed && (
           <div className="flex flex-col">
-            <span className="text-sm font-medium">Jobair AL Sarkar</span>
-            <span className="text-xs text-gray-500">jobair@example.com</span>
+            <span className="text-sm font-medium">
+              {user?.name || "Guest User"}
+            </span>
+            <span className="text-xs text-gray-500">
+              {user?.email || "guest@example.com"}
+            </span>
           </div>
         )}
       </div>

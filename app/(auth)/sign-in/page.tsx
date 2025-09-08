@@ -4,11 +4,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { MoveLeft, SquareSquare } from "lucide-react";
+import { loginWithOAuth } from "@/lib/appwrite";
 
 const SignInPage = () => {
-  const handleSocialLogin = (provider: string) => {
-    console.log(`Logging in with ${provider}`);
-    // Integrate with next-auth or similar here
+  const handleSocialLogin = (provider: "Google" | "GitHub") => {
+    loginWithOAuth(provider.toLowerCase() as "google" | "github");
   };
 
   return (
