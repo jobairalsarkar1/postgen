@@ -5,8 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { MoveLeft, SquareSquare } from "lucide-react";
 import { loginWithOAuth } from "@/lib/appwrite";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 const SignInPage = () => {
+  const authenticated = useAuthGuard({ redirectIfAuth: true });
+
+  if (authenticated) return null;
+
   const handleSocialLogin = (provider: "Google" | "GitHub") => {
     loginWithOAuth(provider.toLowerCase() as "google" | "github");
   };

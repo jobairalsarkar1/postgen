@@ -32,7 +32,7 @@ const Footer = () => {
         </p>
         <div className="flex flex-row justify-center gap-3 flex-wrap">
           <Link
-            href="/account"
+            href="/chat"
             className="inline-flex items-center justify-center tracking-wide font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-white text-base sm:text-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 shadow-lg transition"
           >
             Get Started Free

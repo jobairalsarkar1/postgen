@@ -11,10 +11,9 @@ import {
 } from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
 // import { getCurrentUser } from "@/lib/appwrite";
-import { useUserStore } from "@/stores/userStore";
+import UserAvatar from "./UserAvatar";
 
 const ChatSidebar = () => {
-  const user = useUserStore((state) => state.user);
   const [collapsed, setCollapsed] = useState(false);
   const [hoveringLogo, setHoveringLogo] = useState(false);
   // const [user, setUser] = useState<{ name?: string; email?: string } | null>(
@@ -162,19 +161,7 @@ const ChatSidebar = () => {
           collapsed ? "justify-center py-4" : "gap-3 px-3 py-4"
         }`}
       >
-        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
-          {user?.name ? user.name.charAt(0).toUpperCase() : "G"}
-        </div>
-        {!collapsed && (
-          <div className="flex flex-col">
-            <span className="text-sm font-medium truncate max-w-[160px]">
-              {user?.name || "Guest User"}
-            </span>
-            <span className="text-xs text-gray-500 truncate max-w-[180px]">
-              {user?.email || "guest@example.com"}
-            </span>
-          </div>
-        )}
+        <UserAvatar showInfo={!collapsed} placement="top-right" />
       </div>
     </div>
   );

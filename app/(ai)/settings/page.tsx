@@ -9,6 +9,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import clsx from "clsx";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 const tabs = ["Profile Settings", "Activity", "Account"];
 
@@ -34,8 +35,11 @@ const activityData = [
 ];
 
 export default function SettingsPage() {
+  const authenticated = useAuthGuard({ requireAuth: true });
   const [activeTab, setActiveTab] = useState("Profile Settings");
   const [name, setName] = useState("Jobair AL Sarkar");
+
+  if (!authenticated) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 text-gray-800 dark:text-gray-100 px-4 py-8 sm:px-6 sm:py-10">

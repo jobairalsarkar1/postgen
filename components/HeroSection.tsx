@@ -86,7 +86,7 @@ const HeroSection = () => {
             seconds. Let AI craft your voice while you focus on growing your
             audience.
           </p>
-          <Link href="/dashboard">
+          <Link href="/chat">
             <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-semibold text-lg px-8 py-2.5 rounded-lg shadow-lg transition duration-300 flex items-center cursor-pointer mx-auto lg:mx-0">
               Start Generating
               <MoveRight className="ml-2 w-5 h-5" />

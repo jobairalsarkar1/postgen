@@ -7,9 +7,12 @@ import { Menu, X, SquareSquare } from "lucide-react";
 import clsx from "clsx";
 import ThemeToggle from "./theme/ThemeToggle";
 import NavLink from "./NavLink";
+import { useUserStore } from "@/stores/userStore";
+import UserAvatar from "./UserAvatar";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const user = useUserStore((state) => state.user);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -62,14 +65,18 @@ export default function Navbar() {
               {/* Controls */}
               <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md shadow-sm">
                 <ThemeToggle />
+                {user ? (
+                  <UserAvatar showInfo={false} placement="bottom" />
+                ) : (
+                  <Link
+                    href="/sign-in"
+                    className="text-sm font-semibold px-4 py-2 rounded-md transition hover:bg-blue-100 dark:hover:bg-blue-800/30"
+                  >
+                    Sign In
+                  </Link>
+                )}
                 <Link
-                  href="/sign-in"
-                  className="text-sm font-semibold px-4 py-2 rounded-md transition hover:bg-blue-100 dark:hover:bg-blue-800/30"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/sign-in"
+                  href="/chat"
                   className="font-semibold text-sm px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white rounded-md"
                 >
                   Get Started
@@ -173,9 +180,11 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="p-4">
+          <div className="p-4 space-y-4">
+            <UserAvatar showInfo={true} placement="top-center" />
+
             <Link
-              href="/sign-in"
+              href="/chat"
               className="block w-full text-center text-sm font-semibold px-4 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white"
               onClick={() => setSidebarOpen(false)}
             >

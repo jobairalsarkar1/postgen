@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { SendHorizonal } from "lucide-react";
 import clsx from "clsx";
+import { useAuthGuard } from "@/hooks/useAuthGuard";
 
 const supportedPlatforms = [
   { name: "LinkedIn", icon: "/linkedin.png" },
@@ -18,6 +19,7 @@ const supportedPlatforms = [
 // };
 
 const Page = () => {
+  const authenticated = useAuthGuard({ requireAuth: true });
   const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
   const [prompt, setPrompt] = useState("");
   // const [messages, setMessages] = useState<Message[]>([]);
@@ -42,6 +44,8 @@ const Page = () => {
     // setMessages(newMessages);
     // setPrompt("");
   };
+
+  if (!authenticated) return null;
 
   return (
     <div className="flex flex-col h-full max-h-screen">
@@ -78,7 +82,7 @@ const Page = () => {
       </div>
 
       {/* Prompt Box */}
-      <div className="w-full flex justify-center pb-6 px-4">
+      <div className="w-full flex justify-center pb-6 px-4 z-10">
         <div className="w-full max-w-4xl bg-white/80 dark:bg-gray-950/50 backdrop-blur-md rounded-xl shadow-xl p-4 border border-gray-200 dark:border-blue-900 flex flex-col gap-4">
           {/* Prompt Input */}
           <textarea

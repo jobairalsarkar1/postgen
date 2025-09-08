@@ -23,6 +23,7 @@ export const loginWithOAuth = async (provider: 'google' | 'github') => {
 export const getCurrentUser = async () => {
     try {
         const session = await account.getSession('current');
+        if (!session) return null;
         const user = await account.get();
         return {session, user};
     } catch (error) {

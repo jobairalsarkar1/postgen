@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] });
 // });
 
 export const metadata: Metadata = {
-  title: "PostGen",
+  title: "PostGen AI",
   description: "AI-powered multiplatform focused post generator",
 };
 
