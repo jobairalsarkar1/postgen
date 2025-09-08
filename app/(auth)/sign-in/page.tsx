@@ -77,7 +77,7 @@ const SignInPage = () => {
                 onClick={() => handleSocialLogin("GitHub")}
                 className="w-full flex items-center justify-center gap-3 bg-gray-900 border border-gray-900 rounded-lg py-3 px-4 text-white font-medium hover:bg-gray-800 transition-all duration-300 shadow-sm cursor-pointer"
               >
-                <div className="relative w-5 h-5">
+                <div className="relative w-6 h-6 bg-white rounded-full">
                   <Image
                     src="/github.png"
                     alt="GitHub"

@@ -1,15 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Trash2,
-  User,
-  Activity as ActivityIcon,
-  Save,
-  AlertCircle,
-} from "lucide-react";
+import { User, Activity as ActivityIcon, Save } from "lucide-react";
 import clsx from "clsx";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
+import { useUserStore } from "@/stores/userStore";
+import AccountDangerZone from "@/components/AccountDangerZone";
 
 const tabs = ["Profile Settings", "Activity", "Account"];
 
@@ -36,8 +32,8 @@ const activityData = [
 
 export default function SettingsPage() {
   const authenticated = useAuthGuard({ requireAuth: true });
+  const user = useUserStore((state) => state.user);
   const [activeTab, setActiveTab] = useState("Profile Settings");
-  const [name, setName] = useState("Jobair AL Sarkar");
 
   if (!authenticated) return null;
 
@@ -74,7 +70,7 @@ export default function SettingsPage() {
         </div>
 
         {/* Content */}
-        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 border border-white/20 dark:border-gray-700/30">
+        <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl p-4 sm:p-6 border border-white/20 dark:border-gray-700/30 overflow-hidden">
           {activeTab === "Profile Settings" && (
             <div className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
@@ -96,7 +92,7 @@ export default function SettingsPage() {
                   </label>
                   <input
                     type="email"
-                    value="jobair@example.com"
+                    value={user?.email}
                     disabled
                     className="w-full px-4 py-3 rounded-lg bg-gray-100/70 dark:bg-gray-800/70 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 cursor-not-allowed transition-colors"
                   />
@@ -111,13 +107,16 @@ export default function SettingsPage() {
                   </label>
                   <input
                     type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-lg bg-white/70 dark:bg-gray-950/70 border border-gray-300 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                    value={user?.name}
+                    disabled
+                    className="w-full px-4 py-3 rounded-lg bg-gray-100/70 dark:bg-gray-800/70 text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 cursor-not-allowed transition-colors"
                   />
                 </div>
 
-                <button className="px-6 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 shadow-md hover:shadow-lg">
+                <button
+                  disabled
+                  className="px-6 py-2.5 bg-gray-400 text-white rounded-lg flex items-center gap-2 shadow-md cursor-not-allowed opacity-70"
+                >
                   <Save className="w-4 h-4" />
                   Save Changes
                 </button>
@@ -217,33 +216,7 @@ export default function SettingsPage() {
             </div>
           )}
 
-          {activeTab === "Account" && (
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
-                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400" />
-                </div>
-                <h2 className="text-xl font-semibold text-red-700 dark:text-red-300">
-                  Danger Zone
-                </h2>
-              </div>
-
-              <div className="bg-red-50/80 dark:bg-red-950/20 border border-red-300/70 dark:border-red-700/50 p-6 rounded-xl backdrop-blur-sm">
-                <h3 className="font-semibold text-red-700 dark:text-red-300 mb-2 flex items-center gap-2">
-                  <Trash2 className="w-4 h-4" />
-                  Delete Account
-                </h3>
-                <p className="text-sm text-red-600/90 dark:text-red-400/90 mb-5">
-                  Deleting your account is permanent and cannot be undone. All
-                  data will be lost.
-                </p>
-                <button className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg flex items-center gap-2 transition-all duration-200 shadow-md hover:shadow-lg">
-                  <Trash2 className="w-4 h-4" />
-                  Delete Account
-                </button>
-              </div>
-            </div>
-          )}
+          {activeTab === "Account" && <AccountDangerZone />}
         </div>
       </div>
     </div>

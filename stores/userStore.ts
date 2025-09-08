@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { getCurrentUser } from "@/lib/appwrite";
 
-type User = { name?: string; email?: string } | null;
+type User = { id: string; name?: string; email?: string } | null;
 
 interface UserState {
   user: User;
@@ -18,6 +18,7 @@ export const useUserStore = create<UserState>((set) => ({
       if (data?.user) {
         set({
           user: {
+            id: data.user.$id,
             name: data.user.name || data.user.email?.split("@")[0],
             email: data.user.email,
           },
