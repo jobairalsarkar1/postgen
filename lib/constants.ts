@@ -1,109 +1,68 @@
-import { BarChart3, Clock, Code2, Globe, Shield, Zap } from "lucide-react";
+import { Sparkles, FileText, Globe, Lock } from "lucide-react";
+
+export const features = [
+    {
+      icon: Sparkles,
+      title: "AI-Powered Content",
+      description:
+        "Generate social media posts with AI tailored to your brand voice and tone, like casual, professional, or witty.",
+    },
+    {
+      icon: Globe,
+      title: "Platform Adaptability",
+      description:
+        "Create content optimized for multiple platforms like Twitter, LinkedIn, Facebook, and Reddit from prompt.",
+    },
+    {
+      icon: FileText,
+      title: "Multiple Formats & Customization",
+      description:
+        "Generate posts for promotional, educational, or entertaining purposes, and easily customize them before publishing.",
+    },
+    {
+      icon: Lock,
+      title: "Privacy & Personalization",
+      description:
+        "Your content stays private, while your preferences like dark/light mode and platform selection are remembered for a personalized experience.",
+    },
+];
 
 export const faqs = [
   {
     question: "How does PostGen AI work?",
     answer:
-      "PostGen AI transforms a single prompt into tailored content for platforms like Twitter, LinkedIn, and Facebook. Just type your idea, choose the platform, and let the AI do the rest.",
+      "PostGen AI transforms a single prompt into tailored content for platforms like Twitter, LinkedIn, Facebook, and Reddit. Just type your idea, choose the platform, and let the AI generate a polished post.",
   },
   {
     question: "What platforms are supported?",
     answer:
-      "Right now, PostGen AI supports content generation for Twitter, LinkedIn, Facebook, and Threads — with more platforms coming soon based on user feedback.",
+      "PostGen AI currently supports content generation for Twitter, LinkedIn, Facebook, and Reddit. We plan to add more platforms soon based on user feedback.",
   },
   {
     question: "Is PostGen AI free to use?",
     answer:
-      "Yes, it's completely free to use during our early access period. We're focused on making the product great, and you'll be the first to know when we introduce plans or pricing.",
+      "Yes, it's completely free during the early access period. You'll be the first to know when we introduce any plans or pricing.",
   },
   {
     question: "Can I control the tone or style of the content?",
     answer:
-      "Definitely. You can choose from different tones like casual, professional, witty, or even inspirational — helping your content match your voice or brand.",
+      "Absolutely. You can choose from different tones like casual, professional, witty, or inspirational, helping your content match your personal style or brand voice.",
   },
   {
     question: "Do I need an account to use PostGen AI?",
     answer:
-      "Yes, creating a free account lets you save your generated posts, access platform-specific tools, and get personalized suggestions.",
+      "Yes, creating a free account lets you save your generated posts, select platforms.",
   },
   {
     question: "Is my content private?",
     answer:
-      "Yes. Everything you generate is private and only visible to you. We don’t store your prompts or share your content with anyone.",
-  },
-];
-
-export const features = [
-  {
-    title: "Lightning Fast",
-    description: "Global CDN ensures sub-100ms response times worldwide",
-    icon: Zap,
-    border: "border-yellow-400/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#facc1599]",
-    iconGradient: "from-yellow-400 via-yellow-500 to-yellow-600",
+      "Yes. Everything you generate is private and only visible to you. We don’t share your content with anyone.",
   },
   {
-    title: "Production Ready",
-    description: "99.9% uptime with enterprise-grade infrastructure",
-    icon: Shield,
-    border: "border-pink-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#ec489999]",
-    iconGradient: "from-pink-500 via-fuchsia-500 to-rose-500",
+    question: "Does PostGen AI store cookies or preferences?",
+    answer:
+      "Yes, PostGen AI uses cookies to remember your preferences, like selected platform and dark/light mode, ensuring a seamless experience.",
   },
-  {
-    title: "Usage Analytics",
-    description: "Detailed insights into your API consumption and patterns",
-    icon: BarChart3,
-    border: "border-orange-400/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#fb923c99]",
-    iconGradient: "from-orange-500 via-orange-600 to-orange-700",
-  },
-  {
-    title: "Real-time Updates",
-    description: "Fresh data every hour with realistic variations",
-    icon: Clock,
-    border: "border-indigo-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#6366f199]",
-    iconGradient: "from-indigo-500 via-indigo-600 to-indigo-700",
-  },
-  {
-    title: "Global Access",
-    description: "CORS enabled, accessible from any domain or app",
-    icon: Globe,
-    border: "border-cyan-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#06b6d499]",
-    iconGradient: "from-cyan-500 via-blue-500 to-blue-600",
-  },
-  {
-    title: "Multiple Formats",
-    description: "JSON, XML, CSV - choose your preferred data format",
-    icon: Code2,
-    border: "border-teal-500/30",
-    hoverShadow: "hover:shadow-[0_0_20px_#14b8a699]",
-    iconGradient: "from-teal-500 via-teal-600 to-teal-700",
-  },
-];
-
-export const searchRoutes = [
-  { title: "/ Home", href: "/" },
-  { title: "/ Docs", href: "/docs" },
-  { title: "/ Authentication Docs", href: "/docs/authentication" },
-  { title: "/ Users API", href: "/docs/users-api" },
-  { title: "/ Products API", href: "/docs/products" },
-  { title: "/ Orders API", href: "/docs/orders" },
-  { title: "/ Cart API", href: "/docs/cart" },
-  { title: "/ Payment API", href: "/docs/payment" },
-  { title: "/ Posts API", href: "/docs/posts" },
-  { title: "/ Comments API", href: "/docs/comments" },
-  { title: "/ Reviews API", href: "/docs/reviews" },
-  { title: "/ Notifications API", href: "/docs/notifications" },
-  { title: "/ Account", href: "/account" },
-  { title: "/ API Key", href: "/account" },
-  { title: "/ Settings", href: "/account" },
-  { title: "/ Delete Account", href: "/account" },
-  { title: "/ Contact", href: "/contact" },
-  { title: "/ Privacy", href: "/privacy" },
-  { title: "/ Cookies", href: "/cookies" },
 ];
 
 // Cookies Policy
@@ -113,12 +72,12 @@ export const cookieDetails = [
     cookies: [
       {
         name: "auth-token",
-        purpose: "Authentication session (OAuth login)",
+        purpose: "Authentication session (OAuth login with Google or GitHub)",
         duration: "Session",
       },
       {
         name: "csrf-token",
-        purpose: "Security protection",
+        purpose: "Security protection against cross-site request forgery",
         duration: "Session",
       },
     ],
@@ -128,12 +87,12 @@ export const cookieDetails = [
     cookies: [
       {
         name: "_ga",
-        purpose: "Google Analytics tracking",
+        purpose: "Google Analytics tracking to understand user interactions",
         duration: "2 years",
       },
       {
         name: "_gid",
-        purpose: "Google Analytics tracking",
+        purpose: "Google Analytics tracking to monitor user behavior",
         duration: "24 hours",
       },
     ],
@@ -144,6 +103,11 @@ export const cookieDetails = [
       {
         name: "theme",
         purpose: "Stores dark/light mode preference",
+        duration: "Persistent (stored in localStorage until cleared)",
+      },
+      {
+        name: "platform-selection",
+        purpose: "Stores selected platform for AI post generation (e.g., Twitter, LinkedIn)",
         duration: "Persistent (stored in localStorage until cleared)",
       },
     ],

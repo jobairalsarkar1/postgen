@@ -1,8 +1,8 @@
 import {
-  FileText,
-  LayoutDashboard,
+  History,
   Plus,
   Settings,
+  SquarePen,
   SquareSquare,
 } from "lucide-react";
 import React from "react";
@@ -29,8 +29,8 @@ const DisplayUI = () => {
 
               <nav className="space-y-2 text-gray-300 text-[8px] sm:text-[11px]">
                 {[
-                  { icon: LayoutDashboard, label: "Dashboard" },
-                  { icon: FileText, label: "My Posts" },
+                  { icon: SquarePen, label: "New Chat" },
+                  { icon: History, label: "History" },
                   { icon: Settings, label: "Settings" },
                 ].map(({ icon: Icon, label }, idx) => (
                   <div
@@ -46,13 +46,15 @@ const DisplayUI = () => {
 
             <div className="mt-4 bg-gray-700 rounded-lg p-2 flex items-center space-x-2 text-[9px]">
               <div className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center font-bold text-white text-[8px]">
-                AJ
+                JA
               </div>
               <div>
                 <div className="font-semibold text-white leading-tight">
-                  Alex J.
+                  Jobair A.
                 </div>
-                <div className="text-gray-300 text-[8px]">Product Designer</div>
+                <div className="text-gray-300 text-[8px]">
+                  Software Engineer
+                </div>
               </div>
             </div>
           </aside>

@@ -30,7 +30,6 @@ const Page = () => {
       }
     };
 
-    // Add refs to all sections
     sections.forEach((section) => {
       const el = document.getElementById(section.id);
       if (el) addToRefs(el);
@@ -47,7 +46,6 @@ const Page = () => {
       { root: null, rootMargin: "-30% 0px -30% 0px", threshold: 0 }
     );
 
-    // Take a snapshot of the refs at this moment
     const refsSnapshot = [...sectionRefs.current];
 
     refsSnapshot.forEach((section) => {
@@ -75,7 +73,7 @@ const Page = () => {
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               We value your privacy. This policy explains how we use cookies and
-              similar technologies to enhance your experience.
+              similar technologies to enhance your experience on PostGen AI.
             </p>
           </div>
 
@@ -146,8 +144,7 @@ const Page = () => {
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
-                      Secure authentication using OAuth with Google, GitHub, and
-                      Magic Link
+                      Secure authentication using OAuth with Google and GitHub
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -156,7 +153,9 @@ const Page = () => {
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
-                      Remembering your preferences and settings across sessions
+                      Remembering your preferences and settings across sessions,
+                      including theme (dark/light mode) and platform selection
+                      for post generation
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -175,7 +174,7 @@ const Page = () => {
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
-                      Personalizing content to match your interests and needs
+                      Personalizing content and enhancing user experience
                     </span>
                   </li>
                 </ul>
@@ -204,7 +203,8 @@ const Page = () => {
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       Required for authentication, security, and core
-                      functionality. Cannot be disabled.
+                      functionality. Cannot be disabled. Disabling may prevent
+                      login or AI post generation.
                     </p>
                   </div>
 
@@ -223,7 +223,8 @@ const Page = () => {
                       Functional Cookies
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Remember your preferences like theme, and other
+                      Remember your preferences like theme (dark/light mode),
+                      selected platform for post generation, and other
                       customization options.
                     </p>
                   </div>
@@ -233,8 +234,8 @@ const Page = () => {
                       Marketing Cookies
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Used to track campaign performance and deliver relevant
-                      advertisements.
+                      Used to track campaign performance. Currently, we do not
+                      use cookies for personalized ads.
                     </p>
                   </div>
                 </div>
@@ -368,8 +369,8 @@ const Page = () => {
                     Important Note
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Disabling essential cookies may prevent you from logging in
-                    or using key features of our website. Performance and
+                    Disabling essential cookies will prevent login via Google or
+                    GitHub and the ability to generate AI posts. Performance and
                     functionality may also be affected when restricting other
                     types of cookies.
                   </p>

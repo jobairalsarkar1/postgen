@@ -1,13 +1,16 @@
 "use client";
 
 import { clsx } from "clsx";
-import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
+import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { RiRedditLine } from "react-icons/ri";
+import { FaXTwitter } from "react-icons/fa6";
 
 const platforms = [
   { name: "LinkedIn", icon: Linkedin },
   { name: "Twitter/X", icon: Twitter },
   { name: "Facebook", icon: Facebook },
-  { name: "Instagram", icon: Instagram },
+  { name: "Reddit", icon: RiRedditLine },
+  { name: "Twitter/X", icon: FaXTwitter },
 ];
 
 interface PlatformIconsProps {

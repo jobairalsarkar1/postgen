@@ -128,7 +128,7 @@ const Page = () => {
                       : "opacity-70"
                   )}
                 >
-                  <div className="bg-white/90 rounded-m">
+                  <div className="bg-white/90 rounded-md">
                     <Image
                       src={platform.icon}
                       alt={platform.name}

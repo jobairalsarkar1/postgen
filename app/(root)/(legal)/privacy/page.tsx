@@ -10,8 +10,8 @@ import {
   CheckCircle,
   ChevronRight,
   User,
-  Server,
   Trash2,
+  Server,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -34,12 +34,9 @@ const Page = () => {
 
   useEffect(() => {
     const addToRefs = (el: HTMLElement | null) => {
-      if (el && !sectionRefs.current.includes(el)) {
-        sectionRefs.current.push(el);
-      }
+      if (el && !sectionRefs.current.includes(el)) sectionRefs.current.push(el);
     };
 
-    // Add refs to all sections
     sections.forEach((section) => {
       const el = document.getElementById(section.id);
       if (el) addToRefs(el);
@@ -48,17 +45,13 @@ const Page = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
       { root: null, rootMargin: "-30% 0px -30% 0px", threshold: 0 }
     );
 
-    // Take a snapshot of the refs at this moment
     const refsSnapshot = [...sectionRefs.current];
-
     refsSnapshot.forEach((section) => {
       if (section) observer.observe(section);
     });
@@ -74,7 +67,6 @@ const Page = () => {
     <>
       <section className="min-h-[calc(100vh-64px)] bg-gray-50 dark:bg-[#0e0e10] text-gray-900 dark:text-white/90 px-6 lg:px-12 pt-30 pb-12">
         <div className="w-full max-w-6xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Privacy{" "}
@@ -84,12 +76,12 @@ const Page = () => {
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               Your privacy is important to us. This policy explains how we
-              collect, use, and protect your information.
+              collect, use, and protect your information specifically for
+              PostGen AI.
             </p>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Left Index - Sticky Navigation */}
             <aside className="lg:w-1/4">
               <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg sticky top-24">
                 <h2 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white flex items-center gap-2">
@@ -129,8 +121,8 @@ const Page = () => {
               </div>
             </aside>
 
-            {/* Right Content */}
             <div className="lg:w-3/4 space-y-16">
+              {/* Information We Collect */}
               <div
                 id="information"
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -145,9 +137,10 @@ const Page = () => {
                   <h2 className="text-2xl font-bold">Information We Collect</h2>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                  We collect information you provide directly to us, such as
-                  when you create an account, use our services, or contact us
-                  for support.
+                  We collect information directly relevant to providing PostGen
+                  AI services. This includes data obtained via Appwrite OAuth,
+                  user prompts, generated posts, usage analytics, and support
+                  communications.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -156,28 +149,8 @@ const Page = () => {
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Account information:</strong> Name, email address,
-                      password
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <User
-                      size={20}
-                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Profile information:</strong> Information you
-                      choose to provide in your profile
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <Mail
-                      size={20}
-                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Communications:</strong> Support messages,
-                      feedback, and other communications with us
+                      <strong>Account information:</strong> Name, email (via
+                      Appwrite OAuth)
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -186,13 +159,34 @@ const Page = () => {
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
                     <span className="text-gray-700 dark:text-gray-300">
-                      <strong>Usage data:</strong> Analytics and usage patterns
-                      to improve our services
+                      <strong>Prompt and post data:</strong> User-provided
+                      prompts and AI-generated posts stored in the database
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <Mail
+                      size={20}
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                    />
+                    <span className="text-gray-700 dark:text-gray-300">
+                      <strong>Communications:</strong> Support messages and
+                      feedback
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <Server
+                      size={20}
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                    />
+                    <span className="text-gray-700 dark:text-gray-300">
+                      <strong>Usage data:</strong> Analytics to improve and
+                      personalize the service
                     </span>
                   </li>
                 </ul>
               </div>
 
+              {/* How We Use Information */}
               <div
                 id="usage"
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -204,63 +198,41 @@ const Page = () => {
                       className="text-blue-600 dark:text-blue-400"
                     />
                   </div>
-                  <h2 className="text-2xl font-bold">
-                    How We Use Your Information
-                  </h2>
+                  <h2 className="text-2xl font-bold">How We Use Information</h2>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                  We use the information we collect to provide, maintain, and
-                  improve our services:
-                </p>
-                <ul className="space-y-4">
+                <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To provide and operate our services
-                    </span>
+                    Generate AI posts via Cohere API
                   </li>
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To communicate with you about our services
-                    </span>
+                    Account management, including deletion
                   </li>
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To improve and personalize your experience
-                    </span>
+                    Improving app features and performance
                   </li>
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To detect and prevent fraud or abuse
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle
-                      size={20}
-                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To comply with legal obligations
-                    </span>
+                    Communicating service updates and support responses
                   </li>
                 </ul>
               </div>
 
+              {/* Information Sharing */}
               <div
                 id="sharing"
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -274,51 +246,36 @@ const Page = () => {
                   </div>
                   <h2 className="text-2xl font-bold">Information Sharing</h2>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                  We do not sell, trade, or otherwise transfer your personal
-                  information to third parties, except in the following
-                  circumstances:
+                <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                  We do not sell or trade user information. We only share data
+                  when necessary for:
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      With your explicit consent
-                    </span>
+                    Compliance with legal requirements
                   </li>
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To comply with legal requirements
-                    </span>
+                    Protecting rights or safety
                   </li>
                   <li className="flex items-start">
                     <CheckCircle
                       size={20}
                       className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
                     />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      To protect our rights and safety
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle
-                      size={20}
-                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-gray-700 dark:text-gray-300">
-                      With trusted service providers who assist our operations
-                    </span>
+                    Trusted service providers to maintain the service
                   </li>
                 </ul>
               </div>
 
+              {/* Data Security */}
               <div
                 id="security"
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -333,15 +290,14 @@ const Page = () => {
                   <h2 className="text-2xl font-bold">Data Security</h2>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                  We implement appropriate security measures to protect your
-                  personal information against unauthorized access, alteration,
-                  disclosure, or destruction. These include encryption, access
-                  controls, and regular security assessments. However, no method
-                  of transmission over the internet is 100% secure, and we
-                  cannot guarantee absolute security.
+                  We implement standard security practices including OAuth
+                  authentication, encrypted storage for user prompts. While we
+                  strive to protect your data, no system is completely
+                  foolproof.
                 </p>
               </div>
 
+              {/* Your Rights */}
               <div
                 id="rights"
                 className="scroll-mt-24 bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl"
@@ -356,47 +312,31 @@ const Page = () => {
                   <h2 className="text-2xl font-bold">Your Rights</h2>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed mb-6">
-                  You have the right to:
+                  As a user, you can:
                 </p>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Eye size={18} className="text-blue-500" />
-                      <h3 className="font-semibold text-gray-800 dark:text-white">
-                        Access Information
-                      </h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Request access to the personal information we hold about
-                      you.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <User size={18} className="text-blue-500" />
-                      <h3 className="font-semibold text-gray-800 dark:text-white">
-                        Update Information
-                      </h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Update or correct your information if it&apos;s
-                      inaccurate.
-                    </p>
-                  </div>
-
-                  <div className="bg-gray-50 dark:bg-gray-700/50 p-5 rounded-xl border-l-4 border-blue-500">
-                    <div className="flex items-center gap-3 mb-2">
-                      <Trash2 size={18} className="text-blue-500" />
-                      <h3 className="font-semibold text-gray-800 dark:text-white">
-                        Delete Account
-                      </h3>
-                    </div>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      Delete your account and associated data from our systems.
-                    </p>
-                  </div>
-                </div>
+                <ul className="space-y-4 text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+                  <li className="flex items-start">
+                    <User
+                      size={20}
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                    />
+                    Access and view your information
+                  </li>
+                  <li className="flex items-start">
+                    <User
+                      size={20}
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                    />
+                    Update or correct information
+                  </li>
+                  <li className="flex items-start">
+                    <Trash2
+                      size={20}
+                      className="text-blue-500 mr-3 mt-0.5 flex-shrink-0"
+                    />
+                    Delete your account and associated data
+                  </li>
+                </ul>
               </div>
             </div>
           </div>

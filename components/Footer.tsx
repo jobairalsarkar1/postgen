@@ -89,13 +89,13 @@ const Footer = () => {
 
         <div className="flex justify-center gap-6">
           <Link
-            href="/docs"
+            href="#featurs"
             className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
           >
-            How It Works
+            Features
           </Link>
           <Link
-            href="/account"
+            href="/chat"
             className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
           >
             Get Started
@@ -110,7 +110,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400 py-4">
-          <p>© {currentYear} PostGen. All rights reserved.</p>
+          <p>© {currentYear} PostGen AI. All rights reserved.</p>
 
           <div className="flex items-center gap-4">
             Theme:

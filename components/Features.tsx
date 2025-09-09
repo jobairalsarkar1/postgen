@@ -1,38 +1,12 @@
 "use client";
 
 import React from "react";
-import { Sparkles, FileText, Hash, Globe } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import CustomBadge from "./CustomBadge";
 import SectionHeading from "./SectionHeading";
+import { features } from "@/lib/constants";
 
 const Features = () => {
-  const features = [
-    {
-      icon: Sparkles,
-      title: "AI-Powered Content",
-      description:
-        "Generate engaging social media posts using advanced AI algorithms tailored to your brand voice.",
-    },
-    {
-      icon: Globe,
-      title: "Platform Adaptability",
-      description:
-        "Generate content optimized for different social platforms from a single input.",
-    },
-    {
-      icon: FileText,
-      title: "Multiple Formats",
-      description:
-        "Create posts for different purposes - promotional, educational, entertaining, and more.",
-    },
-    {
-      icon: Hash,
-      title: "Hashtag Suggestions",
-      description:
-        "Get relevant hashtag recommendations to increase your post's visibility and reach.",
-    },
-  ];
-
   return (
     <div className="pt-24 pb-10 bg-white dark:bg-[#0e0e10] relative overflow-hidden">
       {/* Background accents */}
