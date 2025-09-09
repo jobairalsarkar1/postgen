@@ -1,34 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import { User, Activity as ActivityIcon, Save } from "lucide-react";
+import { User, Save } from "lucide-react";
 import clsx from "clsx";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
 import { useUserStore } from "@/stores/userStore";
 import AccountDangerZone from "@/components/AccountDangerZone";
+import ActivityTable from "@/components/ActivityTable";
 
 const tabs = ["Profile Settings", "Activity", "Account"];
-
-const activityData = [
-  {
-    date: "2025-09-06",
-    prompt: "Generated post for LinkedIn",
-    platforms: ["LinkedIn", "Twitter"],
-    status: "Generated",
-  },
-  {
-    date: "2025-09-05",
-    prompt: "Launch announcement post",
-    platforms: ["Facebook"],
-    status: "Generated",
-  },
-  {
-    date: "2025-09-04",
-    prompt: "AI industry insights",
-    platforms: ["Reddit"],
-    status: "Generated",
-  },
-];
 
 export default function SettingsPage() {
   const authenticated = useAuthGuard({ requireAuth: true });
@@ -124,97 +104,7 @@ export default function SettingsPage() {
             </div>
           )}
 
-          {activeTab === "Activity" && (
-            <div>
-              {/* Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                  <ActivityIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                  Recent Activity
-                </h2>
-              </div>
-
-              {/* Table Format */}
-              <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                  <thead>
-                    <tr className="bg-gray-50 dark:bg-gray-800 text-left">
-                      <th className="w-12 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tl-xl">
-                        No.
-                      </th>
-                      <th className="w-[45%] px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Prompt
-                      </th>
-                      <th className="w-32 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Date
-                      </th>
-                      <th className="w-[20%] px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300">
-                        Platforms
-                      </th>
-                      <th className="w-28 px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-300 rounded-tr-xl">
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-800">
-                    {activityData.map((activity, i) => (
-                      <tr
-                        key={i}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                      >
-                        {/* Row number */}
-                        <td className="px-3 py-2.5 text-sm font-medium text-gray-900 dark:text-gray-100">
-                          {i + 1}
-                        </td>
-
-                        {/* Prompt */}
-                        <td className="px-3 py-2.5 text-sm text-gray-900 dark:text-gray-100 truncate">
-                          {activity.prompt}
-                        </td>
-
-                        {/* Date */}
-                        <td className="px-3 py-2.5 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
-                          {activity.date}
-                        </td>
-
-                        {/* Platforms */}
-                        <td className="px-3 py-2.5 whitespace-nowrap">
-                          <div className="flex flex-wrap gap-1">
-                            {activity.platforms.map((p, idx) => (
-                              <span
-                                key={idx}
-                                className="px-2 py-1 text-xs rounded-full font-semibold 
-                        bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-                              >
-                                {p}
-                              </span>
-                            ))}
-                          </div>
-                        </td>
-
-                        {/* Status */}
-                        <td className="px-3 py-2.5 whitespace-nowrap">
-                          <span
-                            className={`px-2 py-1 text-xs rounded-full font-semibold ${
-                              activity.status === "Completed"
-                                ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-                                : activity.status === "Pending"
-                                ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
-                                : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
-                            }`}
-                          >
-                            {activity.status}
-                          </span>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {activeTab === "Activity" && <ActivityTable />}
 
           {activeTab === "Account" && <AccountDangerZone />}
         </div>
