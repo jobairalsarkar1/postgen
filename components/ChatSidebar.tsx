@@ -12,6 +12,7 @@ import {
 import ThemeToggle from "./theme/ThemeToggle";
 // import { getCurrentUser } from "@/lib/appwrite";
 import UserAvatar from "./UserAvatar";
+import RecentChats from "./RecentChats";
 
 const ChatSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -133,26 +134,7 @@ const ChatSidebar = () => {
         </nav>
 
         {/* Recent Chats */}
-        {!collapsed && (
-          <div className="flex flex-col gap-0">
-            <h2 className="text-xs font-semibold text-gray-500 px-2 mb-1 uppercase tracking-wide">
-              Recent Chats
-            </h2>
-            {[
-              { name: "Chat with AI", href: "/chat/ai" },
-              { name: "Marketing Draft", href: "/chat/marketing-draft" },
-            ].map((chat, i) => (
-              <Link
-                key={i}
-                href={chat.href}
-                className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-              >
-                {/* <MessageSquare className="w-5 h-5 text-gray-600 dark:text-gray-300" /> */}
-                <span className="text-sm">{chat.name}</span>
-              </Link>
-            ))}
-          </div>
-        )}
+        {!collapsed && <RecentChats />}
       </div>
 
       {/* User Info */}
