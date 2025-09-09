@@ -128,13 +128,15 @@ const Page = () => {
                       : "opacity-70"
                   )}
                 >
-                  <Image
-                    src={platform.icon}
-                    alt={platform.name}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                  />
+                  <div className="bg-white/90 rounded-m">
+                    <Image
+                      src={platform.icon}
+                      alt={platform.name}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
                 </button>
               ))}
             </div>

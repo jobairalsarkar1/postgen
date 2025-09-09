@@ -186,13 +186,15 @@ const Page = () => {
                   )}
                   disabled={generating}
                 >
-                  <Image
-                    src={platform.icon}
-                    alt={platform.name}
-                    width={32}
-                    height={32}
-                    className="object-contain"
-                  />
+                  <div className="bg-white/90 rounded-md">
+                    <Image
+                      src={platform.icon}
+                      alt={platform.name}
+                      width={32}
+                      height={32}
+                      className="object-contain"
+                    />
+                  </div>
                 </button>
               ))}
             </div>

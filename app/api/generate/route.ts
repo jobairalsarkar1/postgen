@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import axios from "axios";
 
 const COHERE_API_KEY = process.env.COHERE_API_KEY!;
-const SUPPORTED_PLATFORMS = ["Twitter", "Facebook", "LinkedIn", "Instagram"];
+const SUPPORTED_PLATFORMS = ["Twitter", "Facebook", "LinkedIn", "Reddit"];
 
 export async function POST(req: Request) {
   try {
