@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   SquareSquare,
@@ -10,29 +10,30 @@ import {
   Settings,
 } from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
-// import { getCurrentUser } from "@/lib/appwrite";
 import UserAvatar from "./UserAvatar";
 import RecentChats from "./RecentChats";
 
 const ChatSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [hoveringLogo, setHoveringLogo] = useState(false);
-  // const [user, setUser] = useState<{ name?: string; email?: string } | null>(
-  //   null
-  // );
 
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const data = await getCurrentUser();
-  //     if (data?.user) {
-  //       setUser({
-  //         name: data.user.name || data.user.email?.split("@")[0],
-  //         email: data.user.email,
-  //       });
-  //     }
-  //   };
-  //   fetchUser();
-  // }, []);
+  // on smaller devices collapsed by default
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setCollapsed(true);
+      } else {
+        setCollapsed(false);
+      }
+    };
+
+    // run once on mount
+    handleResize();
+
+    // listen for resize
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div
