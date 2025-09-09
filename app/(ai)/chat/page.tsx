@@ -2,7 +2,14 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { SendHorizonal } from "lucide-react";
+import {
+  Globe,
+  Hash,
+  Loader2,
+  MessageCircle,
+  Rocket,
+  SendHorizonal,
+} from "lucide-react";
 import clsx from "clsx";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
 import { useRouter } from "next/navigation";
@@ -14,6 +21,31 @@ const supportedPlatforms = [
   { name: "Twitter", icon: "/twitter.png" },
   { name: "Reddit", icon: "/reddit.png" },
   { name: "Facebook", icon: "/facebook.png" },
+];
+
+const cards = [
+  {
+    icon: <Globe className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+    title: "Multi-Platform",
+    description: "Tailored content for each social platform.",
+  },
+  {
+    icon: <Hash className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+    title: "Hashtag Boost",
+    description: "Smart hashtag suggestions.",
+  },
+  {
+    icon: <Rocket className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+    title: "Fast Results",
+    description: "Generate posts instantly.",
+  },
+  {
+    icon: (
+      <MessageCircle className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+    ),
+    title: "Engagement Focused",
+    description: "Optimized for interaction.",
+  },
 ];
 
 const Page = () => {
@@ -48,21 +80,32 @@ const Page = () => {
   if (!authenticated) return null;
 
   return (
-    <div className="flex flex-col h-full max-h-screen">
-      {/* Chat Area - can be left empty here */}
-      <div className="flex-1 p-6 overflow-y-auto space-y-8">
-        <div className="max-w-4xl mx-auto text-center text-gray-500 dark:text-gray-400">
-          <p className="text-lg">
-            Start by entering a prompt and selecting a platform to generate your
-            post ✨
-          </p>
+    <div className="flex flex-col h-screen">
+      {/* Scrollable Content Area */}
+      <div className="flex-1 overflow-y-auto px-4 py-6 flex justify-center items-center">
+        <div className="w-full px-0 sm:px-10 max-w-4xl grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 justify-center">
+          {cards.map((card, index) => (
+            <div
+              key={index}
+              className="aspect-square p-3 flex flex-col items-center justify-center gap-2 rounded-xl bg-gradient-to-br from-white/80 to-white/60 dark:from-gray-950/50 dark:to-gray-900/50 backdrop-blur-md border border-gray-200 dark:border-gray-800 shadow-sm transition-all hover:shadow-md"
+            >
+              <div className="p-2 rounded-full bg-blue-100 dark:bg-blue-800/40">
+                {card.icon}
+              </div>
+              <h4 className="text-xs font-semibold text-gray-800 dark:text-gray-200 text-center">
+                {card.title}
+              </h4>
+              <p className="text-xs text-gray-600/80 dark:text-gray-300/80 text-center leading-tight px-1">
+                {card.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Prompt Box */}
-      <div className="w-full flex justify-center pb-6 px-4 z-10">
+      {/* Sticky Prompt Box at Bottom */}
+      <div className="w-full px-4 pb-6 flex justify-center">
         <div className="w-full max-w-4xl bg-white/80 dark:bg-gray-950/50 backdrop-blur-md rounded-xl shadow-xl p-4 border border-gray-200 dark:border-blue-900 flex flex-col gap-4">
-          {/* Prompt Input */}
           <textarea
             rows={4}
             placeholder="Enter your prompt to generate social media posts..."
@@ -73,7 +116,6 @@ const Page = () => {
 
           {/* Bottom section */}
           <div className="flex justify-between items-center flex-wrap gap-3">
-            {/* Platforms */}
             <div className="flex gap-3 flex-wrap">
               {supportedPlatforms.map((platform) => (
                 <button
@@ -97,14 +139,13 @@ const Page = () => {
               ))}
             </div>
 
-            {/* Send button */}
             <button
               onClick={handleSubmit}
               disabled={!prompt.trim() || !selectedPlatform || loading}
               className="px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
               {loading ? (
-                <span className="text-sm">Creating...</span>
+                <Loader2 className="w-5 h-5 animate-spin" />
               ) : (
                 <SendHorizonal className="w-5 h-5" />
               )}

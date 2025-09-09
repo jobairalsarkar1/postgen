@@ -1,12 +1,6 @@
+import { DATABASE_ID, databases, TABLE_CAMPAIGNS, TABLE_MESSAGES } from "@/lib/appwriteConfig";
 import { NextResponse } from "next/server";
-import { Client, Databases, Query } from "node-appwrite";
-
-const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
-  .setKey(process.env.APPWRITE_API_KEY!);
-
-const databases = new Databases(client);
+import { Query } from "node-appwrite";
 
 export async function GET(
   req: Request,
@@ -15,17 +9,15 @@ export async function GET(
   const { id } = await context.params;
 
   try {
-    // Fetch campaign
     const campaign = await databases.getDocument(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_CAMPAIGNS!,
+      DATABASE_ID,
+      TABLE_CAMPAIGNS,
       id
     );
 
-    // Fetch related messages
     const messagesRes = await databases.listDocuments(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_MESSAGES!,
+      DATABASE_ID,
+      TABLE_MESSAGES,
       [
         Query.equal("campaignId", id),
         Query.orderDesc("$createdAt"),

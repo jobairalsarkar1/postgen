@@ -1,12 +1,5 @@
+import { DATABASE_ID, databases, ID, TABLE_CAMPAIGNS, TABLE_MESSAGES } from "@/lib/appwriteConfig";
 import { NextResponse } from "next/server";
-import { Client, Databases, ID } from "node-appwrite";
-
-const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
-  .setKey(process.env.APPWRITE_API_KEY!);
-
-const databases = new Databases(client);
 
 export async function POST(req: Request) {
   try {
@@ -19,23 +12,22 @@ export async function POST(req: Request) {
       );
     }
 
-    // 1. Create campaign (⚡ include prompt here)
+    // this will create a campaign like a session for a prompt so inside this follow up prompt can be made.
     const campaign = await databases.createDocument(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_CAMPAIGNS!,
+      DATABASE_ID,
+      TABLE_CAMPAIGNS,
       ID.unique(),
       {
         userId,
         platform,
-        prompt,         // <-- FIXED (was missing before)
+        prompt,
         status: "active",
       }
     );
 
-    // 2. Add initial user message
     await databases.createDocument(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_MESSAGES!,
+      DATABASE_ID,
+      TABLE_MESSAGES,
       ID.unique(),
       {
         campaignId: campaign.$id,
@@ -45,10 +37,9 @@ export async function POST(req: Request) {
       }
     );
 
-    // 3. Add placeholder AI message
     const aiMessage = await databases.createDocument(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_MESSAGES!,
+      DATABASE_ID,
+      TABLE_MESSAGES,
       ID.unique(),
       {
         campaignId: campaign.$id,

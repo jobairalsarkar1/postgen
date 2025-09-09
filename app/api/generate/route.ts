@@ -1,12 +1,5 @@
+import { DATABASE_ID, databases, TABLE_MESSAGES } from "@/lib/appwriteConfig";
 import { NextResponse } from "next/server";
-import { Client, Databases } from "node-appwrite";
-
-const client = new Client()
-  .setEndpoint(process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT!)
-  .setProject(process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID!)
-  .setKey(process.env.APPWRITE_API_KEY!);
-
-const databases = new Databases(client);
 
 const COHERE_API_KEY = process.env.COHERE_API_KEY!;
 
@@ -42,8 +35,8 @@ export async function POST(req: Request) {
 
     // 2. Update AI message in Appwrite
     const updatedMessage = await databases.updateDocument(
-      process.env.APPWRITE_DATABASE_ID!,
-      process.env.APPWRITE_TABLE_MESSAGES!,
+      DATABASE_ID,
+      TABLE_MESSAGES,
       aiMessageId,
       {
         content: generatedContent,
