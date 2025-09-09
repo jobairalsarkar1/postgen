@@ -5,6 +5,9 @@ import Image from "next/image";
 import { SendHorizonal } from "lucide-react";
 import clsx from "clsx";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
+import { useRouter } from "next/navigation";
+import { useUserStore } from "@/stores/userStore";
+import axios from "axios";
 
 const supportedPlatforms = [
   { name: "LinkedIn", icon: "/linkedin.png" },
@@ -13,71 +16,46 @@ const supportedPlatforms = [
   { name: "Facebook", icon: "/facebook.png" },
 ];
 
-// type Message = {
-//   role: "user" | "ai";
-//   content: string;
-// };
-
 const Page = () => {
   const authenticated = useAuthGuard({ requireAuth: true });
-  const [selectedPlatforms, setSelectedPlatforms] = useState<string[]>([]);
+  const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
   const [prompt, setPrompt] = useState("");
-  // const [messages, setMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState(false);
 
-  const togglePlatform = (platform: string) => {
-    setSelectedPlatforms((prev) =>
-      prev.includes(platform)
-        ? prev.filter((p) => p !== platform)
-        : [...prev, platform]
-    );
-  };
+  const router = useRouter();
+  const { user } = useUserStore();
 
-  const handleSubmit = () => {
-    if (!prompt.trim() || selectedPlatforms.length === 0) return;
+  const handleSubmit = async () => {
+    if (!prompt.trim() || !selectedPlatform || !user) return;
 
-    // Sample logic for later:
-    // const newMessages: Message[] = [
-    //   ...messages,
-    //   { role: "user", content: prompt },
-    //   { role: "ai", content: "Generating..." },
-    // ];
-    // setMessages(newMessages);
-    // setPrompt("");
+    try {
+      setLoading(true);
+
+      const res = await axios.post("/api/campaigns", {
+        prompt,
+        platform: selectedPlatform,
+        userId: user.id,
+      });
+
+      router.push(`/chat/${res.data.campaignId}`);
+    } catch (err) {
+      console.error("Error submitting prompt:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (!authenticated) return null;
 
   return (
     <div className="flex flex-col h-full max-h-screen">
-      {/* Chat Area */}
+      {/* Chat Area - can be left empty here */}
       <div className="flex-1 p-6 overflow-y-auto space-y-8">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Static Example Messages */}
-          <div className="max-w-md ml-auto bg-blue-100 dark:bg-blue-900 text-right px-4 py-3 rounded-xl">
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              Write a social media post announcing our new product launch next
-              week.
-            </p>
-          </div>
-          <div className="max-w-md mr-auto bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-xl mt-4">
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              🚀 Exciting news! We’re launching our new product next week – stay
-              tuned for the reveal. 🎉 #LaunchAlert #ComingSoon
-            </p>
-          </div>
-          {/* Static Example Messages */}
-          <div className="max-w-md ml-auto bg-blue-100 dark:bg-blue-900 text-right px-4 py-3 rounded-xl">
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              Write a social media post announcing our new product launch next
-              week.
-            </p>
-          </div>
-          <div className="max-w-md mr-auto bg-gray-100 dark:bg-gray-800 px-4 py-3 rounded-xl mt-4">
-            <p className="text-sm text-gray-800 dark:text-gray-200">
-              🚀 Exciting news! We’re launching our new product next week – stay
-              tuned for the reveal. 🎉 #LaunchAlert #ComingSoon
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto text-center text-gray-500 dark:text-gray-400">
+          <p className="text-lg">
+            Start by entering a prompt and selecting a platform to generate your
+            post ✨
+          </p>
         </div>
       </div>
 
@@ -100,10 +78,10 @@ const Page = () => {
               {supportedPlatforms.map((platform) => (
                 <button
                   key={platform.name}
-                  onClick={() => togglePlatform(platform.name)}
+                  onClick={() => setSelectedPlatform(platform.name)}
                   className={clsx(
                     "w-10 h-10 rounded-lg p-1 transition hover:scale-105 bg-white dark:bg-gray-800 shadow",
-                    selectedPlatforms.includes(platform.name)
+                    selectedPlatform === platform.name
                       ? "ring-2 ring-blue-500"
                       : "opacity-70"
                   )}
@@ -122,10 +100,14 @@ const Page = () => {
             {/* Send button */}
             <button
               onClick={handleSubmit}
-              disabled={!prompt.trim() || selectedPlatforms.length === 0}
-              className="px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={!prompt.trim() || !selectedPlatform || loading}
+              className="px-3 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
             >
-              <SendHorizonal className="w-5 h-5" />
+              {loading ? (
+                <span className="text-sm">Creating...</span>
+              ) : (
+                <SendHorizonal className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>

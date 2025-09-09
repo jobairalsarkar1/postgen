@@ -98,7 +98,7 @@ const ChatSidebar = () => {
             {
               icon: <SquarePlus className="w-5 h-5 text-blue-500" />,
               label: "New Chat",
-              href: "/chat/new",
+              href: "/chat",
             },
             {
               icon: <Clock className="w-5 h-5 text-blue-500" />,
