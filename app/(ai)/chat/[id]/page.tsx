@@ -115,14 +115,14 @@ const Page = () => {
     <div className="flex flex-col h-full max-h-screen">
       {/* Chat Area */}
       <div className="flex-1 p-6 overflow-y-auto space-y-4">
-        <div className="max-w-4xl mx-auto space-y-4">
+        <div className="max-w-4xl mx-auto space-y-6">
           {data.messages.map((msg) => {
             const isAIComplete = msg.role === "ai" && msg.status !== "pending";
 
             return (
               <div
                 key={msg.$id}
-                className="flex w-full mb-2"
+                className="flex w-full mb-4"
                 style={{
                   justifyContent:
                     msg.role === "user" ? "flex-end" : "flex-start",

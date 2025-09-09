@@ -2,13 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import {
-  SquareSquare,
-  PanelLeft,
-  Clock,
-  SquarePlus,
-  Settings,
-} from "lucide-react";
+import { SquareSquare, PanelLeft, SquarePlus, Settings } from "lucide-react";
 import ThemeToggle from "./theme/ThemeToggle";
 import UserAvatar from "./UserAvatar";
 import RecentChats from "./RecentChats";
@@ -102,11 +96,11 @@ const ChatSidebar = () => {
               label: "New Chat",
               href: "/chat",
             },
-            {
-              icon: <Clock className="w-5 h-5 text-blue-500" />,
-              label: "History",
-              href: "/history",
-            },
+            // {
+            //   icon: <Clock className="w-5 h-5 text-blue-500" />,
+            //   label: "History",
+            //   href: "/history",
+            // },
             {
               icon: <Settings className="w-5 h-5 text-blue-500" />,
               label: "Settings",
