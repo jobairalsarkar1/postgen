@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PostGen AI
+
+PostGen AI is an AI-powered social media content generator that helps users create tailored posts for different platforms.
+With just a **prompt** and a **selected platform**, the app generates a ready-to-use post designed to match the tone and style of that specific platform.
+
+Currently supported platforms:
+
+- Facebook
+- LinkedIn
+- Reddit
+- Twitter (X)
+
+---
+
+## Features
+
+- **Authentication with Appwrite OAuth**
+  Secure login with Google and GitHub before generating posts.
+
+- **AI Post Generation**
+  Powered by **Cohere AI**, posts are generated based on your prompt and chosen platform.
+
+- **Account Management**
+  Users can delete their account anytime with a single click.
+
+- **Modern Stack**
+  Built with **Next.js 15**, **TailwindCSS**, and **Zustand** for state management.
+
+---
+
+## Tech Stack
+
+- **Framework:** [Next.js 15](https://nextjs.org/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Authentication & Database:** [Appwrite](https://appwrite.io/)
+- **AI Generation:** [Cohere AI](https://cohere.com/)
+- **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Utilities:** [Axios](https://axios-http.com/), [date-fns](https://date-fns.org/), [Lucide React](https://lucide.dev/)
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/jobairalsarkar1/postgen.git
+cd postgen
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment setup
+
+Create a `.env` file in the project root and add:
+
+```env
+NEXT_PUBLIC_APPWRITE_PROJECT_ID=your-appwrite-project-id
+NEXT_PUBLIC_APPWRITE_PROJECT_NAME=your-appwrite-project-name
+NEXT_PUBLIC_APPWRITE_ENDPOINT=your-appwrite-endpoint
+APPWRITE_DATABASE_ID=your-appwrite-database-id
+APPWRITE_API_KEY=your-appwrite-api-key
+APPWRITE_TABLE_CAMPAIGNS=your-appwrite-table
+APPWRITE_TABLE_MESSAGES=your-appwrite-table
+COHERE_API_KEY=your-cohere-api-key
+```
+
+### 4. Run locally
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Credits
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Authentication & Database: [Appwrite](https://appwrite.io/)
+- AI Text Generation: [Cohere AI](https://cohere.com/)
+- Frontend: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
+- Icons: [Lucide React](https://lucide.dev/)
+- State Management: [Zustand](https://zustand-demo.pmnd.rs/)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [Apache License](LICENSE).
