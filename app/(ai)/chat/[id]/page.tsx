@@ -7,6 +7,8 @@ import clsx from "clsx";
 import useSWR from "swr";
 import { useParams } from "next/navigation";
 import { useAuthGuard } from "@/hooks/useAuthGuard";
+import axios from "axios";
+import { CampaignResponse } from "@/lib/types";
 
 const supportedPlatforms = [
   { name: "LinkedIn", icon: "/linkedin.png" },
@@ -15,15 +17,19 @@ const supportedPlatforms = [
   { name: "Facebook", icon: "/facebook.png" },
 ];
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const Page = () => {
   const authenticated = useAuthGuard({ requireAuth: true });
   const { id } = useParams(); // campaignId
 
-  const { data, mutate } = useSWR(`/api/campaigns/${id}`, fetcher, {
-    refreshInterval: 3000, // poll messages every 3s
-  });
+  const { data, mutate } = useSWR<CampaignResponse>(
+    `/api/campaigns/${id}`,
+    fetcher,
+    {
+      refreshInterval: 3000, // poll messages every 3s
+    }
+  );
 
   const [prompt, setPrompt] = useState("");
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
@@ -42,15 +48,11 @@ const Page = () => {
       setGenerating(true);
 
       try {
-        await fetch("/api/generate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            campaignId: data.campaign.$id,
-            aiMessageId: data.aiMessage.$id,
-            prompt: data.campaign.prompt,
-            platform: data.campaign.platform,
-          }),
+        await axios.post("/api/generate", {
+          campaignId: data.campaign.$id,
+          aiMessageId: data.aiMessage.$id,
+          prompt: data.campaign.prompt,
+          platform: data.campaign.platform,
         });
         mutate(); // refresh messages
       } catch (err) {
@@ -70,41 +72,29 @@ const Page = () => {
     setGenerating(true);
     try {
       // 1. Add user message
-      const userMessageRes = await fetch("/api/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          campaignId: data.campaign.$id,
-          role: "user",
-          content: prompt,
-          status: "complete",
-        }),
+      const userMessageRes = await axios.post("/api/messages", {
+        campaignId: data.campaign.$id,
+        role: "user",
+        content: prompt,
+        status: "complete",
       });
-      const userMessage = await userMessageRes.json();
+      const userMessage = userMessageRes.data;
 
       // 2. Add AI placeholder
-      const aiMessageRes = await fetch("/api/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          campaignId: data.campaign.$id,
-          role: "ai",
-          content: "Generating...",
-          status: "pending",
-        }),
+      const aiMessageRes = await axios.post("/api/messages", {
+        campaignId: data.campaign.$id,
+        role: "ai",
+        content: "Generating...",
+        status: "pending",
       });
-      const aiMessage = await aiMessageRes.json();
+      const aiMessage = aiMessageRes.data;
 
       // 3. Call HuggingFace to generate post
-      await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          campaignId: data.campaign.$id,
-          aiMessageId: aiMessage.$id,
-          prompt,
-          platform: selectedPlatform,
-        }),
+      await axios.post("/api/generate", {
+        campaignId: data.campaign.$id,
+        aiMessageId: aiMessage.$id,
+        prompt,
+        platform: selectedPlatform,
       });
 
       setPrompt("");
@@ -124,7 +114,7 @@ const Page = () => {
       {/* Chat Area */}
       <div className="flex-1 p-6 overflow-y-auto space-y-4">
         <div className="max-w-4xl mx-auto space-y-4">
-          {data.messages.map((msg: any) => (
+          {data.messages.map((msg) => (
             <div
               key={msg.$id}
               className={clsx(
