@@ -62,25 +62,31 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-4 mt-2">
             <Link
-              href="#"
+              href="https://github.com/jobairalsarkar1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
             >
               <Github className="w-5 h-5" />
             </Link>
             <Link
-              href="#"
+              href="https://x.com/jobairalsarkar"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
             >
               <Twitter className="w-5 h-5" />
             </Link>
             <Link
-              href="#"
+              href="https://www.linkedin.com/in/jobair-al-sarkar"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
             >
               <Linkedin className="w-5 h-5" />
             </Link>
             <Link
-              href="#"
+              href="mailto:jobair.a.sarkar@gmail.com"
               className="text-gray-500 dark:text-gray-400 hover:text-blue-500 transition"
             >
               <Mail className="w-5 h-5" />

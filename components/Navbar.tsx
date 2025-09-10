@@ -85,7 +85,7 @@ export default function Navbar() {
                   href="/chat"
                   className="font-semibold text-sm px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white rounded-md"
                 >
-                  Get Started
+                  Start Creating
                 </Link>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function Navbar() {
               className="block w-full text-center text-sm font-semibold px-4 py-2 bg-blue-700 hover:bg-blue-800 rounded-md text-white"
               onClick={() => setSidebarOpen(false)}
             >
-              Get Started
+              Start Creating
             </Link>
           </div>
         </div>
