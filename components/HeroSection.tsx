@@ -75,20 +75,20 @@ const HeroSection = () => {
         {/* Text & CTAs */}
         <div className="text-center lg:text-left lg:pl-6">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-normal mb-6">
-            Generate Amazing{" "}
+            Create Scroll-Stopping{" "}
             <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-blue-600 bg-clip-text text-transparent">
               Social Media Posts
             </span>{" "}
             with AI
           </h1>
           <p className="text-xl text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0">
-            Create engaging content for LinkedIn, Twitter, Reddit, and more in
-            seconds. Let AI craft your voice while you focus on growing your
-            audience.
+            Go from idea to polished post in seconds. PostGen AI helps you
+            create high-impact content for LinkedIn, Twitter, Facebook, and
+            Reddit — tailored to perform and built to engage
           </p>
           <Link href="/chat">
             <button className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 text-white font-semibold text-lg px-8 py-2.5 rounded-lg shadow-lg transition duration-300 flex items-center cursor-pointer mx-auto lg:mx-0">
-              Start Generating
+              Create Post with AI
               <MoveRight className="ml-2 w-5 h-5" />
             </button>
           </Link>

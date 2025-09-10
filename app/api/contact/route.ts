@@ -14,20 +14,17 @@ export async function POST(req: NextRequest) {
 
     // HTML email template
     const html = `
-      <div style="font-family: 'Inter', sans-serif; background-color:#E4EDD9; padding:20px;">
+      <div style="font-family: 'Inter', sans-serif; background-color:#EFF6FF; padding:20px;">
         <div style="max-width:600px; margin:auto; background:white; border-radius:16px; box-shadow:0 4px 12px rgba(0,0,0,0.05); overflow:hidden;">
-          <div style="background: linear-gradient(90deg, #FFA500, #FF7B00); padding:20px; text-align:center; color:white; font-size:24px; font-weight:bold;">
-            New Contact Form Submission
-          </div>
-          <div style="padding:20px; color:#14532D;">
+          <div style="padding:20px; color:#1E3A8A;">
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Subject:</strong> ${subject}</p>
             <p><strong>Message:</strong></p>
-            <p style="background:#E4EDD9; padding:12px; border-radius:8px; color:#14532D;">${message}</p>
+            <p style="background:#DBEAFE; padding:12px; border-radius:8px; color:#1E3A8A;">${message}</p>
           </div>
-          <div style="padding:15px; text-align:center; font-size:12px; color:#659E0F; background:#F0F9E8;">
-            Sent via jobairalsarkar.site
+          <div style="padding:15px; text-align:center; font-size:12px; color:#3B82F6; background:#EFF6FF;">
+            Sent via PostGen AI
           </div>
         </div>
       </div>

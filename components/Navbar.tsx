@@ -60,6 +60,12 @@ export default function Navbar() {
                   active={pathname === "/#faq"}
                   desktop
                 />
+                <NavLink
+                  href="/contact"
+                  text="Contact"
+                  active={pathname === "/contact"}
+                  desktop
+                />
               </div>
 
               {/* Controls */}

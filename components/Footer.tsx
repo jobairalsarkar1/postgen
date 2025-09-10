@@ -27,15 +27,15 @@ const Footer = () => {
           &nbsp;Your Social Media?
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
-          Join thousands of creators and developers who save hours every week
-          with AI-powered tools.
+          Join thousands of creators and developers who save hours every week by
+          creating smarter with AI.
         </p>
         <div className="flex flex-row justify-center gap-3 flex-wrap">
           <Link
             href="/chat"
             className="inline-flex items-center justify-center tracking-wide font-semibold px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg text-white text-base sm:text-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-500 shadow-lg transition"
           >
-            Get Started Free
+            Start Creating Free
             <MoveRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
           </Link>
         </div>
@@ -56,8 +56,9 @@ const Footer = () => {
             PostGen AI
           </span>
           <p className="text-sm leading-snug text-gray-500 dark:text-gray-400 max-w-sm">
-            AI-powered social content generation platform. Build faster, engage
-            smarter, and focus on what matters most.
+            AI-powered platform that creates social media posts tailored to your
+            voice. Save time, boost engagement, and grow your audience
+            effortlessly.
           </p>
           <div className="flex items-center gap-4 mt-2">
             <Link

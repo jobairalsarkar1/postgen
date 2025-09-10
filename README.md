@@ -35,6 +35,7 @@ Currently supported platforms:
 - **Authentication & Database:** [Appwrite](https://appwrite.io/)
 - **AI Generation:** [Cohere AI](https://cohere.com/)
 - **State Management:** [Zustand](https://zustand-demo.pmnd.rs/)
+- **Email Service:** [Resend](https://resend.com/)
 - **Utilities:** [Axios](https://axios-http.com/), [date-fns](https://date-fns.org/), [Lucide React](https://lucide.dev/)
 
 ---
@@ -84,6 +85,7 @@ npm run dev
 - Frontend: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
 - Icons: [Lucide React](https://lucide.dev/)
 - State Management: [Zustand](https://zustand-demo.pmnd.rs/)
+- Email Sending: [Resend](https://resend.com/)
 
 ---
 
