@@ -1,10 +1,4 @@
-import {
-  History,
-  Plus,
-  Settings,
-  SquarePen,
-  SquareSquare,
-} from "lucide-react";
+import { History, Plus, Settings, SquarePen, SquareSquare } from "lucide-react";
 import React from "react";
 
 const DisplayUI = () => {
@@ -66,7 +60,8 @@ const DisplayUI = () => {
               {/* Prompt 1 */}
               <div className="flex justify-end">
                 <div className="max-w-[75%] bg-gradient-to-br from-blue-600 to-blue-500 text-white p-3 rounded-lg text-[10px] shadow-md">
-                  Announce new role as Data Scientist at Google.
+                  Announce a new feature launch for your AI-powered social media
+                  tool.
                 </div>
               </div>
 
@@ -74,11 +69,10 @@ const DisplayUI = () => {
               <div className="flex justify-start">
                 <div className="max-w-[75%] bg-gray-800 border border-gray-700 text-white p-3 rounded-lg text-[10px] shadow-md">
                   <p className="leading-tight">
-                    Thrilled to join{" "}
-                    <span className="text-blue-400">@Google</span> as a Data
-                    Scientist!
-                    <br />
-                    Excited for what’s ahead. #Google #NewRole
+                    Excited to unveil our latest feature — AI-powered post
+                    customization! Craft content that matches your brand’s voice
+                    effortlessly. Ready to level up your social media game? #AI
+                    #SocialMedia #Innovation
                   </p>
                 </div>
               </div>
@@ -86,7 +80,7 @@ const DisplayUI = () => {
               {/* Prompt 2 */}
               <div className="flex justify-end">
                 <div className="max-w-[75%] bg-gradient-to-br from-blue-600 to-blue-500 text-white p-3 rounded-lg text-[10px] shadow-md">
-                  Share excitement about speaking at a tech conference.
+                  Share tips for creating engaging LinkedIn posts using AI.
                 </div>
               </div>
 
@@ -113,20 +107,22 @@ const DisplayUI = () => {
 
             {/* Footer Input */}
             <footer className="px-3 py-2 bg-gray-850 border-t border-gray-700">
-              <form className="flex items-center bg-gray-700/50 backdrop-blur-md border border-gray-600 rounded-lg px-3 py-1.5 space-x-2 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] transition-all duration-300">
+              <div className="flex items-center bg-gray-700/50 backdrop-blur-md border border-gray-600 rounded-lg px-3 py-1.5 space-x-2 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05)] transition-all duration-300">
                 <Plus className="w-4 h-4" />
                 <input
                   type="text"
                   placeholder="Type prompt..."
-                  className="flex-1 bg-transparent placeholder-gray-400 text-white text-[10px] focus:outline-none"
+                  className="flex-1 bg-transparent placeholder-gray-400 text-white text-[10px] focus:outline-none cursor-not-allowed"
+                  disabled
                 />
                 <button
                   type="submit"
-                  className="bg-gradient-to-tr from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 px-3 py-1.5 text-[9px] rounded-lg font-medium text-white shadow-md transition-all duration-300"
+                  className="bg-gradient-to-tr from-indigo-500 to-indigo-700 hover:from-indigo-600 hover:to-indigo-800 px-3 py-1.5 text-[9px] rounded-lg font-medium text-white shadow-md transition-all duration-300 cursor-not-allowed"
+                  disabled
                 >
                   Generate
                 </button>
-              </form>
+              </div>
             </footer>
           </main>
         </div>
