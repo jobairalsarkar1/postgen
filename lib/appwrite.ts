@@ -11,8 +11,8 @@ export const loginWithOAuth = async (provider: 'google' | 'github') => {
     try {
         await account.createOAuth2Session(
             provider === 'google' ? OAuthProvider.Google : OAuthProvider.Github,
-            `${window.location.origin}/chat`,
-            `${window.location.origin}/sign-in`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/chat`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/sign-in`,
         )
         
     } catch (error) {
