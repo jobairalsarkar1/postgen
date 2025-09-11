@@ -7,7 +7,7 @@ type Theme = "light" | "dark" | "system";
 
 interface ThemeToggleProps {
   showText?: boolean;
-  direction?: "up" | "down"; // new prop
+  direction?: "up" | "down";
 }
 
 const ThemeToggle = ({
@@ -74,7 +74,16 @@ const ThemeToggle = ({
     setOpen(false);
   };
 
-  const getThemeIcon = (t: Theme) => {
+  const getEffectiveTheme = (): "light" | "dark" => {
+    if (theme === "system") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    }
+    return theme;
+  };
+
+  const getThemeIcon = (t: Theme | "light" | "dark") => {
     switch (t) {
       case "light":
         return <Sun className="h-4 w-4 text-gray-800 dark:text-yellow-400" />;
@@ -85,7 +94,7 @@ const ThemeToggle = ({
     }
   };
 
-  const getThemeLabel = (t: Theme) => {
+  const getThemeLabel = (t: Theme | "light" | "dark") => {
     switch (t) {
       case "light":
         return "Light";
@@ -105,8 +114,10 @@ const ThemeToggle = ({
           showText ? " py-1.5" : " py-2.5"
         }`}
       >
-        {getThemeIcon(theme)}
-        {showText && <span className="text-sm">{getThemeLabel(theme)}</span>}
+        {getThemeIcon(getEffectiveTheme())}
+        {showText && (
+          <span className="text-sm">{getThemeLabel(getEffectiveTheme())}</span>
+        )}
       </button>
 
       {/* Dropdown */}
